@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>F2 Restaurant</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <link rel="stylesheet" href="./assets/css/bootstrap-grid.min.css" />
+   <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+
+<body>
+   <div class="container-xxl body-container">
+      <div class="row">
+         <div class="col-1">
+            <!-- Nav Bar -->
+            <nav class="nav">
+               <div class="nav__item nav__item--active">
+                  <ion-icon class="nav__item-icon" name="ios-home"></ion-icon>
+               </div>
+               <div class="nav__item">
+                  <ion-icon class="nav__item-icon" name="ios-chatbubbles"></ion-icon>
+               </div>
+               <div class="nav__item">
+                  <ion-icon class="nav__item-icon" name="ios-wallet"></ion-icon>
+               </div>
+               <div class="nav__item">
+                  <ion-icon class="nav__item-icon" name="ios-heart"></ion-icon>
+               </div>
+               <div class="nav__item">
+                  <ion-icon class="nav__item-icon" name="ios-document"></ion-icon>
+               </div>
+               <div class="nav__item">
+                  <ion-icon class="nav__item-icon" name="ios-settings"></ion-icon>
+               </div>
+               <div class="nav__item">
+                  <ion-icon class="nav__item-icon" name="ios-log-out"></ion-icon>
+               </div>
+            </nav>
+            <!-- Nav Bar End -->
+         </div>
+         <div class="col-11">
+            <!-- Home -->
+            <div class="home">
+               <div class="row">
+                  <div class="col-9">
+                     <!-- Home Main Contents -->
+                     <div class="home__main-content">
+                        <!-- Header -->
+                        <header class="header">
+                           <div class="header__logo">
+                              <img src="./assets/img/f2r-metal-250-1.png" alt="Logo" class="header__logo-img" />
+                           </div>
+                           <div class="header__search">
+                              <input type="text" class="header__search-input" placeholder="Search by food name" id="home-search">
+                              <label for="home-search" class="header__search-icon">
+                                 <ion-icon name="ios-search"></ion-icon>
+                              </label>
+                           </div>
+                        </header>
+                        <!-- Header End -->
+
+                        <!-- Banner -->
+                        <div class="banner">
+                           <img src="./assets/img/bannerpng3.png" alt="banner" class="banner__img">
+                           <div class="banner__contents">
+                              <span class="auth-required ">
+                                 <button class="auth-required-login">Log in</button>
+                                 or
+                                 <button class="auth-required-signup">Sign up</button>
+                                 to
+                              </span>
+                              <h2 class="banner__contets-heading  d-none">Hello <span class="user__info-name">Jeremy</span>, </h2>
+                              <p class="banner__contents-desc">Get free delivery every <span>$20</span> purchase</p>
+                              <button class="banner__contents-btn btn">Learn More</button>
+                           </div>
+                        </div>
+                        <!-- Banner End -->
+
+                        <!-- Menu -->
+                        <div class="menu">
+                           <!-- Menu Category -->
+                           <div class="menu__category">
+                              <header class="menu__category-header">
+                                 <h2 class="menu__category-heading">Menu Category</h2>
+                                 <span class="menu__category-control btn-2">
+                                    <span class="btn-2__desc">View All</span>
+                                    <div class="btn-2__icon">
+                                       <ion-icon name="ios-arrow-forward"></ion-icon>
+                                    </div>
+                                 </span>
+                              </header>
+
+                              <div class="menu__category-container">
+                                 <div class="row">
+                                    <div class="col-2">
+                                       <div data-foodType="pizza" class="menu__category-item menu__category-item--actived">
+                                          <div class="menu__category-item-img">
+                                             <img src="./assets/img/pizza/pizza-category.png" alt="Pizza Image">
+                                          </div>
+                                          <h4 class="menu__category-item-name">Pizza</h4>
+                                          <div class="menu__category-item-icon">
+                                             <ion-icon name="arrow-dropdown"></ion-icon>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-2">
+                                       <div data-foodType="burger" class="menu__category-item">
+                                          <div class="menu__category-item-img">
+                                             <img src="./assets/img/burger/burger-category.png" alt="burger Image">
+                                          </div>
+                                          <h4 class="menu__category-item-name">burger</h4>
+                                          <div class="menu__category-item-icon">
+                                             <ion-icon name="arrow-dropdown"></ion-icon>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-2">
+                                       <div data-foodType="hotdog" class="menu__category-item">
+                                          <div class="menu__category-item-img">
+                                             <img src="./assets/img/hotdog/hotdog-category.png" alt="hotdog Image">
+                                          </div>
+                                          <h4 class="menu__category-item-name">hotdog</h4>
+                                          <div class="menu__category-item-icon">
+                                             <ion-icon name="arrow-dropdown"></ion-icon>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-2">
+                                       <div data-foodType="taco" class="menu__category-item">
+                                          <div class="menu__category-item-img">
+                                             <img src="./assets/img/taco/taco-category.png" alt="taco Image">
+                                          </div>
+                                          <h4 class="menu__category-item-name">taco</h4>
+                                          <div class="menu__category-item-icon">
+                                             <ion-icon name="arrow-dropdown"></ion-icon>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-2">
+                                       <div data-foodType="snack" class="menu__category-item">
+                                          <div class="menu__category-item-img">
+                                             <img src="./assets/img/snack/snack-category.png" alt="snack Image">
+                                          </div>
+                                          <h4 class="menu__category-item-name">snack</h4>
+                                          <div class="menu__category-item-icon">
+                                             <ion-icon name="arrow-dropdown"></ion-icon>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-2">
+                                       <div data-foodType="drink" class="menu__category-item">
+                                          <div class="menu__category-item-img">
+                                             <img src="./assets/img/drink/drink-category.png" alt="drink Image">
+                                          </div>
+                                          <h4 class="menu__category-item-name">drink</h4>
+                                          <div class="menu__category-item-icon">
+                                             <ion-icon name="arrow-dropdown"></ion-icon>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    
+                                 </div>
+                              </div>
+                           </div>
+                           <!-- Menu Category End -->
+
+                           <!-- Food Container -->
+                           <div class="food-container">
+                              <div class="row">
+                                 <div class="col-4">
+                                    <div class="food">
+                                       <img src="./assets/img/pizza/0002211_tropical-sf_300.png" alt=""
+                                          class="food__img">
+                                       <div class="food__contents">
+                                          <div class="food__info">
+                                             <h3 class="food__info-name">Tropical Seafood Tropical Seafood</h3>
+                                             <div class="food__info-rating">
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                             </div>
+                                             <p class="food__info-price"><span>$</span>7.49</p>
+                                          </div>
+                                          <button class="food__contents-add-btn">+</button>
+
+                                       </div>
+                                       <div class="food__favorite-icon">
+                                          <ion-icon name="heart-half"></ion-icon>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-4">
+                                    <div class="food">
+                                       <img src="./assets/img/pizza/0002211_tropical-sf_300.png" alt=""
+                                          class="food__img">
+                                       <div class="food__contents">
+                                          <div class="food__info">
+                                             <h3 class="food__info-name">Tropical Seafood</h3>
+                                             <div class="food__info-rating">
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                             </div>
+                                             <p class="food__info-price"><span>$</span>7.49</p>
+                                          </div>
+                                          <button class="food__contents-add-btn">+</button>
+
+                                       </div>
+                                       <div class="food__favorite-icon">
+                                          <ion-icon name="heart-half"></ion-icon>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-4">
+                                    <div class="food">
+                                       <img src="./assets/img/pizza/0002211_tropical-sf_300.png" alt=""
+                                          class="food__img">
+                                       <div class="food__contents">
+                                          <div class="food__info">
+                                             <h3 class="food__info-name">Tropical Seafood</h3>
+                                             <div class="food__info-rating">
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                             </div>
+                                             <p class="food__info-price"><span>$</span>7.49</p>
+                                          </div>
+                                          <button class="food__contents-add-btn">+</button>
+
+                                       </div>
+                                       <div class="food__favorite-icon">
+                                          <ion-icon name="heart-half"></ion-icon>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-4">
+                                    <div class="food">
+                                       <img src="./assets/img/pizza/0002211_tropical-sf_300.png" alt=""
+                                          class="food__img">
+                                       <div class="food__contents">
+                                          <div class="food__info">
+                                             <h3 class="food__info-name">Tropical Seafood</h3>
+                                             <div class="food__info-rating">
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                             </div>
+                                             <p class="food__info-price"><span>$</span>7.49</p>
+                                          </div>
+                                          <button class="food__contents-add-btn">+</button>
+
+                                       </div>
+                                       <div class="food__favorite-icon">
+                                          <ion-icon name="heart-half"></ion-icon>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-4">
+                                    <div class="food">
+                                       <img src="./assets/img/pizza/0002211_tropical-sf_300.png" alt=""
+                                          class="food__img">
+                                       <div class="food__contents">
+                                          <div class="food__info">
+                                             <h3 class="food__info-name">Tropical Seafood</h3>
+                                             <div class="food__info-rating">
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                             </div>
+                                             <p class="food__info-price"><span>$</span>7.49</p>
+                                          </div>
+                                          <button class="food__contents-add-btn">+</button>
+
+                                       </div>
+                                       <div class="food__favorite-icon">
+                                          <ion-icon name="heart-half"></ion-icon>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-4">
+                                    <div class="food">
+                                       <img src="./assets/img/pizza/0002211_tropical-sf_300.png" alt=""
+                                          class="food__img">
+                                       <div class="food__contents">
+                                          <div class="food__info">
+                                             <h3 class="food__info-name">Tropical Seafood</h3>
+                                             <div class="food__info-rating">
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                             </div>
+                                             <p class="food__info-price"><span>$</span>7.49</p>
+                                          </div>
+                                          <button class="food__contents-add-btn">+</button>
+
+                                       </div>
+                                       <div class="food__favorite-icon">
+                                          <ion-icon name="heart-half"></ion-icon>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-4">
+                                    <div class="food">
+                                       <img src="./assets/img/pizza/0002211_tropical-sf_300.png" alt=""
+                                          class="food__img">
+                                       <div class="food__contents">
+                                          <div class="food__info">
+                                             <h3 class="food__info-name">Tropical Seafood</h3>
+                                             <div class="food__info-rating">
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                             </div>
+                                             <p class="food__info-price"><span>$</span>7.49</p>
+                                          </div>
+                                          <button class="food__contents-add-btn">+</button>
+
+                                       </div>
+                                       <div class="food__favorite-icon">
+                                          <ion-icon name="heart-half"></ion-icon>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-4">
+                                    <div class="food">
+                                       <img src="./assets/img/pizza/0002211_tropical-sf_300.png" alt=""
+                                          class="food__img">
+                                       <div class="food__contents">
+                                          <div class="food__info">
+                                             <h3 class="food__info-name">Tropical Seafood</h3>
+                                             <div class="food__info-rating">
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                             </div>
+                                             <p class="food__info-price"><span>$</span>7.49</p>
+                                          </div>
+                                          <button class="food__contents-add-btn">+</button>
+
+                                       </div>
+                                       <div class="food__favorite-icon">
+                                          <ion-icon name="heart-half"></ion-icon>
+                                       </div>
+                                    </div>
+                                 </div>
+
+
+                              </div>
+                           </div>
+                           <!-- Food Container End -->
+                        </div>
+                        <!-- Menu End -->
+                     </div>
+                     <!-- Home Main Contents End -->
+                  </div>
+                  <div class="col-3">
+                     <div class="home__sub-content"></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- Home End -->
+      </div>
+   </div>
+
+   <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+   <script type="module" src="./assets/js/app.js"></script>
+</body>
+
+</html>
