@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,700&display=swap&family=Roboto:wght@100;300&display=swap");
 html {
   font-family: "Open Sans", sans-serif;
   color: #292A3A;
@@ -111,6 +112,9 @@ body {
   width: 100%;
 }
 
+.auth-required {
+  color: #80838B;
+}
 .auth-required-login, .auth-required-signup {
   border: none;
   background-color: transparent;
@@ -265,6 +269,9 @@ body {
   outline: none;
   height: 100%;
   flex: 1;
+}
+.home__main-content .header__search-input::placeholder {
+  opacity: 0.7;
 }
 .home__main-content .header__search-icon {
   font-size: 1.5rem;
@@ -432,16 +439,19 @@ body {
   font-size: 1.125rem;
   font-weight: bold;
   line-height: 1.4;
+  margin: 8px 0;
 }
 .food-container .food__info-rating {
   color: #fa9401;
   font-size: 0.85;
 }
 .food-container .food__info-price {
+  margin-top: 8px;
   font-size: 1rem;
-  font-weight: 800;
+  font-weight: 700;
 }
 .food-container .food__info-price span {
+  font-weight: 800;
   font-size: 0.75rem;
   margin-right: 3px;
   color: #fa9401;
@@ -460,6 +470,178 @@ body {
 }
 .food-container .food__favorite-icon > * {
   margin: auto;
+}
+
+.home__sub-content {
+  width: 100%;
+  padding: 0 40px;
+}
+
+.home__sub-content .header {
+  display: flex;
+  align-items: center;
+}
+.home__sub-content .header__notify {
+  margin-left: auto;
+  margin-right: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  color: #80838B;
+  background-color: #F8F8FB;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+  position: relative;
+}
+.home__sub-content .header__notify:hover {
+  background-color: #FFE2BA;
+  color: #292A3A;
+  cursor: pointer;
+}
+.home__sub-content .header__notify--has-notify .header__notify-count {
+  display: flex;
+}
+.home__sub-content .header__notify-icon {
+  margin: auto;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+.home__sub-content .header__notify-count {
+  display: none;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-weight: 600;
+  font-size: 0.7rem;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #fa9401;
+  color: #fff;
+}
+.home__sub-content .header .user {
+  display: flex;
+  align-items: center;
+}
+.home__sub-content .header .user__avatar img {
+  object-fit: contain;
+  margin: auto;
+  border-radius: 50%;
+}
+.home__sub-content .header .user__info {
+  margin-left: 8px;
+  margin-right: 8px;
+  color: #292A3A;
+  line-height: 1.4;
+}
+.home__sub-content .header .user__info-name {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0;
+}
+.home__sub-content .header .user__info-role {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+.home__sub-content .header .user__control {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
+}
+.home__sub-content .header .user__control:hover {
+  background-color: #ddd;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.balance-container {
+  margin-top: 40px;
+  width: 100%;
+  padding-top: 56.25%;
+  position: relative;
+}
+.balance-container .card-logo {
+  position: absolute;
+  top: 0;
+  z-index: 9999;
+}
+.balance-container .card-style {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+.balance-container .card-style-1 {
+  background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20190222/ourmid/pngtree-orange-gradient-background-illustration-imageorange-background-illustrationgradient-image_60012.jpg");
+  transform: rotateZ(-8deg);
+  z-index: 2;
+}
+.balance-container .card-style-2 {
+  background-image: url("https://lh3.google.com/u/0/d/1QgXlVBahzukq4Eh5SHxD_iWpL5Z0INBI=w1842-h952-iv1");
+  z-index: 3;
+}
+.balance-container .card-style-3 {
+  background-image: url("https://lh3.google.com/u/0/d/1RwWhpsaf3XeWpyO5IsoS1Ia_eAjvJk4B=w1842-h952-iv1");
+  transform: rotateZ(-16deg);
+  z-index: 1;
+}
+
+.balance {
+  position: absolute;
+  inset: 0;
+  color: #fff;
+  color: #F5BD02;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  z-index: 9999;
+}
+.balance__info {
+  margin-top: auto;
+  order: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.balance__info .user__info-wallet-balance {
+  font-size: 1.6rem;
+}
+.balance__info .user__info-fullname {
+  margin: 0;
+  margin-top: 8px;
+  font-size: 0.875rem;
+  font-family: roboto, sans-serif;
+  font-weight: 100;
+  letter-spacing: 1px;
+}
+.balance__info-id {
+  margin-top: auto;
+  font-family: roboto, sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  display: flex;
+  flex-direction: column;
+}
+.balance__info-id-img {
+  margin-left: auto;
+  margin-bottom: 4px;
+}
+.balance__desc {
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  margin-left: auto;
+  margin-bottom: auto;
+  letter-spacing: 1px;
+  order: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

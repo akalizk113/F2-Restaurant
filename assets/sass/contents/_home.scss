@@ -2,13 +2,16 @@
 
 .home {
    flex: 1;
-   > .row {
+
+   >.row {
       height: 100%;
-      > * {
+
+      >* {
          display: flex;
          padding: 40px 0;
       }
-      > *:first-child {
+
+      >*:first-child {
          background-color: $gray-2;
       }
    }
@@ -22,6 +25,7 @@
    max-height: 100%;
    overflow-y: scroll;
    overflow-x: hidden;
+
    &::-webkit-scrollbar {
       width: 10px;
       background-color: #fff;
@@ -45,17 +49,20 @@
       opacity: 1;
    }
 }
-   // Header
+
+// Header
 .home__main-content .header {
    height: 3.2rem;
    display: flex;
+
    &__logo {
       height: 100%;
+
       &-img {
          height: 100%;
       }
    }
-   
+
    &__search {
       margin-left: auto;
       display: inline-flex;
@@ -66,24 +73,31 @@
       border-radius: 20px;
       overflow: hidden;
       box-shadow: 2px 2px 5px rgb(0 0 0 / 10%);
+
       &-input {
          border: none;
          outline: none;
          height: 100%;
          flex: 1;
+
+         &::placeholder {
+            opacity: 0.7;
+         }
       }
+
       &-icon {
          font-size: 1.5rem;
       }
    }
 }
 
-   // Banner
+// Banner
 .banner {
    margin-top: 25px;
    width: 100%;
    height: 200px;
    position: relative;
+
    &__img {
       width: 100%;
    }
@@ -95,9 +109,11 @@
       top: 54%;
       right: 20%;
       transform: translateY(-50%);
+
       &-desc {
          margin: 16px 0;
          color: $gray-1;
+
          span {
             font-weight: 600;
             color: $primary-color;
@@ -106,17 +122,18 @@
    }
 }
 
-   // Menu
+// Menu
 .menu {
    padding-top: 25px;
+
    .menu__category {
       &-header {
          display: flex;
          align-items: center;
       }
-      &-heading {
 
-      }
+      &-heading {}
+
       &-control {
          margin-left: auto;
       }
@@ -124,6 +141,7 @@
       &-container {
          margin-top: 8px;
       }
+
       &-item {
          height: 136px;
          background-color: #fff;
@@ -133,6 +151,7 @@
          align-items: center;
          transition: all 0.3s;
          box-shadow: 2px 2px 5px rgb(0 0 0 / 10%);
+
          &-img {
             width: 56px;
             height: 56px;
@@ -144,12 +163,14 @@
             transition: all 0.3s;
             background-color: $gray-2;
             margin-top: 16px;
+
             img {
                width: 24px;
                object-fit: contain;
-               
+
             }
          }
+
          &-name {
             transform: translateY(10px);
             transition: all 0.3s;
@@ -157,12 +178,14 @@
             margin-bottom: 8px;
             text-transform: capitalize;
          }
+
          &-icon {
             opacity: 0;
             transform: translateY(5px);
             transition: all 0.3s;
             font-size: 20px;
          }
+
          @mixin item-actived {
 
             & .menu__category-item-name,
@@ -183,6 +206,7 @@
             transform: translateY(-6px);
             @include item-actived;
          }
+
          &--actived {
             background-color: $primary-color !important;
             color: #fff;
@@ -192,10 +216,10 @@
    }
 }
 
-      // Food Container
-.food-container {
+// Food Container
+.food-container {}
 
-}
+// Food
 .food-container .food {
    $food-height: 264px;
    $food-img-width: 140px;
@@ -204,8 +228,9 @@
    height: $food-height;
    display: flex;
    justify-content: center;
-   animation:  fadeIn 0.5s;
+   animation: fadeIn 0.5s;
    margin-top: 25px;
+
    &__img {
       width: $food-img-width;
       position: absolute;
@@ -263,6 +288,7 @@
          font-size: 1.125rem;
          font-weight: bold;
          line-height: 1.4;
+         margin: 8px 0;
       }
 
       &-rating {
@@ -271,9 +297,11 @@
       }
 
       &-price {
+         margin-top: 8px;
          font-size: 1rem;
-         font-weight: 800;
+         font-weight: 700;
          & span {
+            font-weight: 800;
             font-size: 0.75rem;
             margin-right: 3px;
             color: $primary-color;
@@ -294,8 +322,208 @@
       color: #FC3838;
       background-color: #FFE1E2;
 
-      & > * {
+      &>* {
          margin: auto;
       }
-   } 
+   }
+}
+
+
+// Home Sub Content
+.home__sub-content {
+   width: 100%;
+   padding: 0 40px;
+}
+
+// Header
+.home__sub-content .header {
+   display: flex;
+   align-items: center;
+
+   &__notify {
+      margin-left: auto;
+      margin-right: 16px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      color: $gray-1;
+      background-color: $gray-2;
+      box-shadow: 2px 2px 5px rgb(0 0 0 / 10%);
+      transition: all 0.2s;
+      position: relative;
+
+      &:hover {
+         background-color: $secondary-color;
+         color: $text-color;
+         cursor: pointer;
+      }
+
+      &--has-notify {
+         .header__notify-count {
+            display: flex;
+         }
+      }
+
+      &-icon {
+         margin: auto;
+         font-size: 1.4rem;
+         font-weight: bold;
+      }
+
+      &-count {
+         display: none;
+         position: absolute;
+         top: 5px;
+         right: 5px;
+         font-weight: 600;
+         font-size: 0.7rem;
+         justify-content: center;
+         align-items: center;
+         width: 16px;
+         height: 16px;
+         border-radius: 50%;
+         background-color: $primary-color;
+         color: #fff;
+      }
+   }
+
+   .user {
+      display: flex;
+      align-items: center;
+
+      &__avatar {
+         img {
+            object-fit: contain;
+            margin: auto;
+            border-radius: 50%;
+         }
+      }
+
+      &__info {
+         margin-left: 8px;
+         margin-right: 8px;
+         color: #292A3A;
+         line-height: 1.4;
+
+
+         &-name {
+            font-size: 1rem;
+            font-weight: bold;
+            margin: 0;
+         }
+
+         &-role {
+            font-size: 0.75rem;
+            opacity: 0.7;
+         }
+      }
+
+      &__control {
+         width: 30px;
+         height: 30px;
+         border-radius: 50%;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         transition: all 0.3s;
+
+         &:hover {
+            background-color: #ddd;
+            box-shadow: 1px 1px 2px rgb(0 0 0 / 20%);
+            cursor: pointer;
+         }
+      }
+   }
+}
+
+// Balance Container
+.balance-container {
+   margin-top: 40px;
+   width: 100%;
+   padding-top: 56.25%;
+   position: relative;
+   .card-logo {
+      position: absolute;
+      top: 0;
+      z-index: 9999;
+
+   }
+
+   .card-style {
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      box-shadow: 2px 2px 5px rgb(0 0 0 / 10%);
+
+      &-1 {
+         background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20190222/ourmid/pngtree-orange-gradient-background-illustration-imageorange-background-illustrationgradient-image_60012.jpg');
+         transform: rotateZ(-8deg);
+         z-index: 2;
+      }
+      
+      &-2 {
+         background-image: url('https://lh3.google.com/u/0/d/1QgXlVBahzukq4Eh5SHxD_iWpL5Z0INBI=w1842-h952-iv1');
+         z-index: 3;
+      }
+
+      &-3 {
+         background-image: url('https://lh3.google.com/u/0/d/1RwWhpsaf3XeWpyO5IsoS1Ia_eAjvJk4B=w1842-h952-iv1');
+         transform: rotateZ(-16deg);
+         z-index: 1;
+      }
+   }
+}
+
+.balance {
+   position: absolute;
+   inset: 0;
+   color: #fff;
+   color: #F5BD02;
+   display: flex;
+   flex-direction: column;
+   padding: 16px;
+   z-index: 9999;
+   &__info {
+      margin-top: auto;
+      order: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      .user {
+         &__info-wallet-balance {
+            font-size: 1.6rem;
+         }
+         &__info-fullname {
+            margin: 0;
+            margin-top: 8px;
+            font-size: 0.875rem;
+            font-family: roboto, sans-serif;
+            font-weight: 100;
+            letter-spacing: 1px;
+         }
+      }
+      &-id {
+         margin-top: auto;
+         font-family: roboto, sans-serif;
+         font-size: 0.75rem;
+         letter-spacing: 2px;
+         display: flex;
+         flex-direction: column;
+         &-img {
+            margin-left: auto;
+            margin-bottom: 4px;
+         }
+      }
+   }
+   &__desc {
+      font-family: 'Raleway', sans-serif;
+      text-transform: uppercase;
+      margin-left: auto;
+      margin-bottom: auto;
+      letter-spacing: 1px;
+      order: 0;
+   }
 }
