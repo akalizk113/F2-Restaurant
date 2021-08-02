@@ -1,5 +1,37 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,700&display=swap&family=Roboto:wght@100;300&display=swap");
+@keyframes foodSlide {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideLTR {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes growUp {
+  from {
+    transform: scale(30%);
+  }
+  to {
+    transform: scale(100%);
+  }
+}
 html {
   font-family: "Open Sans", sans-serif;
   color: #292A3A;
@@ -203,6 +235,38 @@ body {
   font-size: 1.5rem;
 }
 
+@keyframes foodSlide {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideLTR {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes growUp {
+  from {
+    transform: scale(30%);
+  }
+  to {
+    transform: scale(100%);
+  }
+}
 .home {
   flex: 1;
 }
@@ -475,6 +539,8 @@ body {
 .home__sub-content {
   width: 100%;
   padding: 0 40px;
+  display: flex;
+  flex-direction: column;
 }
 
 .home__sub-content .header {
@@ -642,6 +708,153 @@ body {
   margin-bottom: auto;
   letter-spacing: 1px;
   order: 0;
+}
+
+.order {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+}
+.order__footer-total-cost {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+.order__footer-total-cost-desc {
+  font-size: 0.875rem;
+}
+.order__footer-total-cost-number {
+  margin: auto;
+  margin-left: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-right: 28px;
+}
+.order__footer-total-cost-number span {
+  font-size: 0.75rem;
+  margin-right: 3px;
+  color: #fa9401;
+}
+.order__footer-checkout-btn {
+  margin-top: auto;
+  width: 100%;
+}
+.order__footer-checkout-btn::before {
+  transition: all 0.4s;
+}
+
+.order .order__container {
+  flex: 1;
+  display: flex;
+  flex-direction: column-reverse;
+  max-height: 337px;
+  margin-top: auto;
+  overflow-y: scroll;
+  padding-right: 25px;
+  margin-right: -25px;
+}
+.order .order__container::-webkit-scrollbar {
+  width: 10px;
+  background-color: #fff;
+}
+.order .order__container::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  visibility: hidden;
+  opacity: 0;
+  border-radius: 10px;
+}
+.order .order__container::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+.order .order__container::-webkit-scrollbar-thumb:hover, .order .order__container:hover::-webkit-scrollbar-thumb {
+  visibility: visible;
+  opacity: 1;
+}
+
+.order .order__food {
+  display: flex;
+  align-items: center;
+  border-radius: 15px;
+  transition: all 0.3s;
+  margin-top: 10px;
+  padding: 5px 0;
+  animation: slideLTR 0.5s, fadeIn 0.5s;
+}
+.order .order__food:hover {
+  transform: translate(15px, -5px);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.order .order__food:hover .order__food-delete-btn {
+  visibility: visible;
+}
+.order .order__food-img {
+  margin-left: 5px;
+  height: 60px;
+  min-width: 60px;
+  display: flex;
+  border-radius: 15px;
+  background-color: #FFE2BA;
+}
+.order .order__food-img img {
+  margin: auto;
+  width: 42px;
+}
+.order .order__food-info {
+  padding: 8px 16px;
+}
+.order .order__food-info-name {
+  font-size: 1rem;
+  margin-top: 0;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+.order .order__food-info-amount .multiple-icon {
+  font-size: 0.75rem;
+  color: #fa9401;
+  font-weight: 600;
+}
+.order .order__food-info-amount-number {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  width: 40px;
+  height: 20px;
+  overflow: hidden;
+  outline: none;
+  border: none;
+}
+.order .order__food-info-amount-number:focus {
+  background-color: #FFE2BA;
+}
+.order .order__food-info-amount .order__food-delete-btn {
+  border: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-left: 16px;
+  padding: 3px 10px;
+  background-color: #ccc;
+  border-radius: 6px;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+.order .order__food-info-amount .order__food-delete-btn:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+.order .order__food-cost {
+  margin: auto;
+  margin-right: 16px;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+.order .order__food-cost span {
+  font-size: 0.75rem;
+  font-weight: 800;
+  margin-right: 3px;
+  color: #fa9401;
 }
 
 /*# sourceMappingURL=style.css.map */

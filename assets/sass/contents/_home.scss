@@ -300,6 +300,7 @@
          margin-top: 8px;
          font-size: 1rem;
          font-weight: 700;
+
          & span {
             font-weight: 800;
             font-size: 0.75rem;
@@ -333,6 +334,8 @@
 .home__sub-content {
    width: 100%;
    padding: 0 40px;
+   display: flex;
+   flex-direction: column;
 }
 
 // Header
@@ -443,6 +446,7 @@
    width: 100%;
    padding-top: 56.25%;
    position: relative;
+
    .card-logo {
       position: absolute;
       top: 0;
@@ -463,7 +467,7 @@
          transform: rotateZ(-8deg);
          z-index: 2;
       }
-      
+
       &-2 {
          background-image: url('https://lh3.google.com/u/0/d/1QgXlVBahzukq4Eh5SHxD_iWpL5Z0INBI=w1842-h952-iv1');
          z-index: 3;
@@ -486,16 +490,19 @@
    flex-direction: column;
    padding: 16px;
    z-index: 9999;
+
    &__info {
       margin-top: auto;
       order: 1;
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
+
       .user {
          &__info-wallet-balance {
             font-size: 1.6rem;
          }
+
          &__info-fullname {
             margin: 0;
             margin-top: 8px;
@@ -505,6 +512,7 @@
             letter-spacing: 1px;
          }
       }
+
       &-id {
          margin-top: auto;
          font-family: roboto, sans-serif;
@@ -512,12 +520,14 @@
          letter-spacing: 2px;
          display: flex;
          flex-direction: column;
+
          &-img {
             margin-left: auto;
             margin-bottom: 4px;
          }
       }
    }
+
    &__desc {
       font-family: 'Raleway', sans-serif;
       text-transform: uppercase;
@@ -526,4 +536,193 @@
       letter-spacing: 1px;
       order: 0;
    }
+}
+
+// Order 
+.order {
+   flex: 1;
+   display: flex;
+   flex-direction: column;
+   margin-top: 40px;
+
+   &__header {}
+
+   &__heading {}
+
+   &__footer {
+      &-total-cost {
+         display: flex;
+         align-items: center;
+         justify-content: flex-end;
+         margin-bottom: 10px;
+
+         &-desc {
+            font-size: 0.875rem;
+         }
+
+         &-number {
+            margin: auto;
+            margin-left: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-right: 28px;
+
+            span {
+               font-size: 0.75rem;
+               margin-right: 3px;
+               color: #fa9401;
+            }
+         }
+      }
+
+      &-checkout-btn {
+         margin-top: auto;
+         // height: 50px;
+         width: 100%;
+
+         &::before {
+            transition: all 0.4s;
+         }
+      }
+   }
+}
+
+.order .order__container {
+   flex: 1;
+   display: flex;
+   flex-direction: column-reverse;
+   max-height: 337px;
+   margin-top: auto;
+   overflow-y: scroll;
+   padding-right: 25px;
+   margin-right: -25px;
+   &::-webkit-scrollbar {
+      width: 10px;
+      background-color: #fff;
+
+
+      &-thumb {
+         background-color: #ccc;
+         visibility: hidden;
+         opacity: 0;
+         border-radius: 10px;
+      }
+
+      &-track {
+         background-color: #fff;
+      }
+   }
+
+   &::-webkit-scrollbar-thumb:hover,
+   &:hover::-webkit-scrollbar-thumb {
+      visibility: visible;
+      opacity: 1;
+   }
+}
+
+.order .order__food {
+   display: flex;
+   align-items: center;
+   border-radius: 15px;
+   transition: all 0.3s;
+   margin-top: 10px;
+   padding: 5px 0;
+   animation: slideLTR 0.5s, fadeIn 0.5s;
+
+   &:hover {
+
+      .order__food-delete-btn {
+         visibility: visible;
+      }
+
+      transform: translate(15px, -5px);
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+
+   }
+
+
+   &-img {
+      margin-left: 5px;
+      height: 60px;
+      min-width: 60px;
+      display: flex;
+      border-radius: 15px;
+      background-color: $secondary-color;
+
+      img {
+         margin: auto;
+         width: 42px;
+      }
+   }
+
+   &-info {
+      padding: 8px 16px;
+
+      &-name {
+         font-size: 1rem;
+         margin-top: 0;
+         margin-bottom: 6px;
+         font-weight: 700;
+      }
+
+      &-amount {
+
+         .multiple-icon {
+            font-size: 0.75rem;
+            color: $primary-color;
+            font-weight: 600;
+         }
+
+         &-number {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            width: 40px;
+            height: 20px;
+            overflow: hidden;
+            outline: none;
+            border: none;
+
+            &:focus {
+               background-color: $secondary-color;
+            }
+
+         }
+
+         .order__food-delete-btn {
+            border: none;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 16px;
+            padding: 3px 10px;
+            background-color: #ccc;
+            border-radius: 6px;
+            visibility: hidden;
+            transition: all 0.3s;
+
+            &:hover {
+               cursor: pointer;
+               opacity: 0.8;
+            }
+         }
+      }
+
+   }
+
+
+   &-cost {
+      margin: auto;
+      margin-right: 16px;
+      font-size: 0.875rem;
+      font-weight: 700;
+
+      span {
+         font-size: 0.75rem;
+         font-weight: 800;
+         margin-right: 3px;
+         color: $primary-color;
+      }
+   }
+
 }
