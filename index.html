@@ -6,6 +6,8 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
    <title>F2 Restaurant</title>
+   <link rel="icon" href="./assets/img/f2.svg">
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
       integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
       crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -14,6 +16,7 @@
 </head>
 
 <body>
+   <!-- Main Body -->
    <div class="container-xxl body-container">
       <div class="row">
          <div class="col-1">
@@ -21,24 +24,32 @@
             <nav class="nav">
                <div class="nav__item nav__item--active">
                   <ion-icon class="nav__item-icon" name="ios-home"></ion-icon>
+                  <span class="nav__item-tootltip">Home</span>
                </div>
                <div class="nav__item">
-                  <ion-icon class="nav__item-icon" name="ios-chatbubbles"></ion-icon>
+                  <span class="material-icons nav__item-icon">inventory</span>
+                  <!-- <ion-icon class="nav__item-icon" name="ios-chatbubbles"></ion-icon> -->
+                  <span class="nav__item-tootltip">My Orders</span>
                </div>
                <div class="nav__item">
                   <ion-icon class="nav__item-icon" name="ios-wallet"></ion-icon>
+                  <span class="nav__item-tootltip">Wallet</span>
                </div>
                <div class="nav__item">
                   <ion-icon class="nav__item-icon" name="ios-heart"></ion-icon>
+                  <span class="nav__item-tootltip">Favorites</span>
                </div>
                <div class="nav__item">
                   <ion-icon class="nav__item-icon" name="ios-document"></ion-icon>
+                  <span class="nav__item-tootltip">User Policy</span>
                </div>
                <div class="nav__item">
                   <ion-icon class="nav__item-icon" name="ios-settings"></ion-icon>
+                  <span class="nav__item-tootltip">Settings</span>
                </div>
                <div class="nav__item">
                   <ion-icon class="nav__item-icon" name="ios-log-out"></ion-icon>
+                  <span class="nav__item-tootltip">Log out</span>
                </div>
             </nav>
             <!-- Nav Bar End -->
@@ -53,7 +64,7 @@
                         <!-- Header -->
                         <header class="header">
                            <div class="header__logo">
-                              <img src="./assets/img/f2r-metal-250-1.png" alt="Logo" class="header__logo-img" />
+                              <img src="./assets/img/f2-logo-nogradient.png" alt="Logo" class="header__logo-img" />
                            </div>
                            <div class="header__search">
                               <input type="text" class="header__search-input" placeholder="Search by food name"
@@ -595,6 +606,86 @@
          <!-- Home End -->
       </div>
    </div>
+   <!-- Main Body End -->
+
+   <!-- Modal -->
+   <div class="modal">
+      <div class="modal__overlay"></div>
+      <div class="modal__body">
+         <!-- Close Button -->
+         <div class="modal__body-close-btn">
+            <ion-icon class="modal__body-close-btn-icon" name="ios-close"></ion-icon>
+         </div>
+         <!-- Close Button End -->
+
+         <!-- Auth Form -->
+         <div class="auth-form">
+            <!-- Login Form -->
+            <div class="auth-form__container">
+               <header class="auth-form__header">
+                  <h2 class="auth-form__heading">Login</h2>
+               </header>
+
+               <div class="auth-form__form">
+                  <form action="" id="form-1" class="login-form form">
+                     <div class="form__group">
+                        <div class="form__input">
+                           <label for="login-email" class="form__label">Email / Username</label>
+                           <input type="text" name="loginEmail" id="login-email" class="form__control" placeholder="">
+                        </div>
+                        <span class="form__message"></span>
+                     </div>
+
+                     <div class="form__group">
+                        <div class="form__input">
+                           <label for="login-password" class="form__label">Password</label>
+                           <input type="password" name="loginPassword" id="login-password" class="form__control" placeholder="">
+                        </div>
+                        <span class="form__message"></span>
+
+                     </div>
+
+                     <div class="form__aside">
+                        <div class="form__aside-help">
+                           <span class="form__aside-switch-btn">Register</span>
+                           <a href="#" class="form__aside-link">Forgot Password?</a>
+                        </div>
+                     </div>
+
+                     <button class="form__control-btn btn">Sign in</button>
+                  </form>
+               </div>
+
+               <footer class="auth-form__footer">
+                  <span class="auth-form__footer-desc">or sign in with</span>
+
+                  <div class="auth-form__footer-container">
+                     <a class="auth-form__footer-link" href="#">
+                        <img width="25"
+                           src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2048px-Google_%22G%22_Logo.svg.png"
+                           alt="Google_Logo" class="auth-form__footer-img">
+                     </a>
+
+                     <a class="auth-form__footer-link" href="#">
+                        <img width="25"
+                           src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png"
+                           alt="Facebook_Logo" class="auth-form__footer-img">
+                     </a>
+
+                     <a class="auth-form__footer-link" href="#">
+                        <img width="25"
+                           src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IMessage_logo.svg/600px-IMessage_logo.svg.png"
+                           alt="SMS_logo" class="auth-form__footer-img">
+                     </a>
+                  </div>
+               </footer>
+            </div>
+            <!-- Login Form End -->
+         </div>
+         <!-- Auth Form End -->
+      </div>
+   </div>
+   <!-- Modal End -->
 
    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
    <script type="module" src="./assets/js/app.js"></script>
