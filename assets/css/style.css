@@ -688,11 +688,11 @@ body {
   z-index: 2;
 }
 .balance-container .card-style-2 {
-  background-image: url("https://lh3.google.com/u/0/d/1QgXlVBahzukq4Eh5SHxD_iWpL5Z0INBI=w1842-h952-iv1");
+  background-image: url("https://github.com/akalizk113/F2-Restaurant/blob/main/assets/img/card_background/black.jpg");
   z-index: 3;
 }
 .balance-container .card-style-3 {
-  background-image: url("https://lh3.google.com/u/0/d/1RwWhpsaf3XeWpyO5IsoS1Ia_eAjvJk4B=w1842-h952-iv1");
+  background-image: url("https://github.com/akalizk113/F2-Restaurant/blob/main/assets/img/card_background/deep-blue.jpg");
   transform: rotateZ(-16deg);
   z-index: 1;
 }
@@ -947,6 +947,7 @@ body {
 }
 .auth-form__heading {
   margin-top: 0;
+  font-size: 2.25em;
 }
 .auth-form__footer {
   margin-top: 16px;
@@ -980,38 +981,39 @@ body {
 .form__group .form__input .form__label {
   position: absolute;
   top: 50%;
+  right: 0;
   left: 0;
   font-size: 0.875rem;
   padding: 0 8px;
-  transform: translateY(-50%);
   transition: transform 0.4s;
-  opacity: 0.7;
-  cursor: text;
-}
-.form__group .form__input .form__control {
-  border: none;
-  outline: none;
-  padding: 4px 8px;
-  font-size: 0.825rem;
-  width: 92%;
-}
-.form__group .form__input::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  height: 0;
-  width: 0;
-  border-bottom: 2px solid #fa9401;
-  transition: all 0.3s;
-}
-.form__group .form__input--oninput .form__label {
   transform: translate(-8px, -180%);
   opacity: 0.8;
   cursor: default;
 }
-.form__group .form__input--oninput::before {
+.form__group .form__input .form__control {
+  border: none;
+  outline: none;
+  padding: 4px 16px 4px 8px;
+  font-size: 0.825rem;
+  width: 92%;
+  position: relative;
+}
+.form__group .form__input .form__control:placeholder-shown + .form__label {
+  transform: translateY(-50%);
+  opacity: 0.7;
+  cursor: text;
+}
+.form__group .form__input .form__control:placeholder-shown ~ .form__underline {
+  width: 0;
+}
+.form__group .form__input .form__underline {
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 0;
   width: 100%;
+  border-bottom: 2px solid #fa9401;
+  transition: all 0.4s;
 }
 .form__group .form__message {
   font-size: 0.8rem;

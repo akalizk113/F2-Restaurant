@@ -180,6 +180,7 @@
 
    &__heading {
       margin-top: 0;
+      font-size: 2.25em;
    }
 
    &__form {}
@@ -187,18 +188,23 @@
    &__footer {
       margin-top: 16px;
       text-align: center;
+
       &-desc {
          font-size: 0.75rem;
       }
+
       &-container {
          margin-top: 20px;
       }
+
       &-link {
          text-decoration: none;
          padding: 0 8px;
       }
+
       &-img {
          opacity: 0.8;
+
          &:hover {
             opacity: 1;
          }
@@ -219,44 +225,43 @@
          .form__label {
             position: absolute;
             top: 50%;
+            right: 0;
             left: 0;
             font-size: 0.875rem;
             padding: 0 8px;
-            transform: translateY(-50%);
             transition: transform 0.4s;
-            opacity: 0.7;
-            cursor: text;
+            transform: translate(-8px, -180%);
+            opacity: 0.8;
+            cursor: default;
          }
 
          .form__control {
             border: none;
             outline: none;
-            padding: 4px 8px;
+            padding: 4px 16px 4px 8px;
             font-size: 0.825rem;
             width: 92%;
+            position: relative;
+
+            &:placeholder-shown + .form__label {
+               transform: translateY(-50%);
+               opacity: 0.7;
+               cursor: text;
+            }
+            &:placeholder-shown ~ .form__underline {
+               width: 0;
+            }
+
          }
 
-         &::before {
-            content: "";
+         .form__underline {
             position: absolute;
             left: 0;
             bottom: -2px;
             height: 0;
-            width: 0;
+            width: 100%;
             border-bottom: 2px solid $primary-color;
-            transition: all 0.3s;
-         }
-
-         &--oninput {
-            .form__label {
-               transform: translate(-8px, -180%);
-               opacity: 0.8;
-               cursor: default;
-            }
-
-            &::before {
-               width: 100%;
-            }
+            transition: all 0.4s;
          }
       }
 
@@ -268,6 +273,7 @@
 
    &__aside {
       margin-bottom: 25px;
+
       &-help {
          color: $primary-color;
          font-size: 0.875rem;
@@ -276,16 +282,20 @@
          cursor: pointer;
 
       }
+
       &-switch-btn {
          transition: all 0.3s;
+
          &:hover {
             text-decoration: underline;
          }
       }
+
       &-link {
          text-decoration: none;
          color: $primary-color;
          margin-left: auto;
+
          &:hover {
             text-decoration: underline;
          }
