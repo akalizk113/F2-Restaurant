@@ -17,8 +17,8 @@
    }
 }
 
-//===================== Home main content =====================
-.home__main-content {
+//===================== Home Main Container =====================
+.home__main-container {
    padding: 0 30px 0 40px;
    background-color: $gray-2;
    flex: 1;
@@ -27,32 +27,10 @@
    overflow-x: hidden;
    @include scroll-1($gray-2);
 
-   // &::-webkit-scrollbar {
-   //    width: 10px;
-   //    background-color: #fff;
-
-
-   //    &-thumb {
-   //       background-color: #ccc;
-   //       visibility: hidden;
-   //       opacity: 0;
-   //       border-radius: 10px;
-   //    }
-
-   //    &-track {
-   //       background-color: $gray-2;
-   //    }
-   // }
-
-   // &::-webkit-scrollbar-thumb:hover,
-   // &:hover::-webkit-scrollbar-thumb {
-   //    visibility: visible;
-   //    opacity: 1;
-   // }
 }
 
 // Header
-.home__main-content .header {
+.home__main-container .header {
    height: 3.2rem;
    display: flex;
 
@@ -339,9 +317,87 @@
    }
 }
 
+// ===================== Home Checkout Container =====================
+.home__checkout-container {
+   flex: 1;
+   padding: 0 40px;
+}
 
-// ===================== Home Sub Content =====================
-.home__sub-content {
+.home__checkout-header {
+   text-align: center;
+}
+.home__checkout-heading {
+   text-transform: uppercase;
+   font-weight: 800;
+   letter-spacing: 2px;
+   margin-bottom: 40px;
+}
+
+.checkout-item {
+   &__header {
+
+   }
+   &__desc {
+      font-size: 0.875rem;
+      color: $gray-1;
+   }
+   &__heading {
+      text-transform: uppercase;
+      margin: 8px 0;
+      font-weight: 800;
+   }
+
+   .checkout-form {
+      &__group {
+         position: relative;
+         display: flex;
+         margin-top: 24px;
+      }
+      &__label {
+         position: absolute;
+         top: 50%;
+         left: 16px;
+         transform: translateY(-50%);
+         display: inline-block;
+         z-index: 1;
+         background-color: $gray-2;
+         padding: 0 6px;
+         transition: all 0.3s;
+         cursor: text;
+         color: rgb(156, 156, 156);
+      }
+      &__input {
+         flex: 1;
+         height: 36px;
+         padding: 0 16px;
+         border-radius: 10px;
+         outline: none;
+         border-width: 1px;
+         border-style: solid;
+         border-color: #ccc;
+         background-color: $gray-2;
+         transition: all 0.3s;
+         &:not(:placeholder-shown),
+         &:focus {
+            border-color: $blue-1;
+         }
+         &:not(:placeholder-shown) + .checkout-form__label,
+         &:focus + .checkout-form__label {
+            transform: translateY(-28px);
+            color: $blue-1;
+         }
+         &::-webkit-inner-spin-button,
+         &::-webkit-outer-spin-button {
+            appearance: none;
+            display: none;
+         }
+      }
+   }
+}
+
+
+// ===================== Home Sub Container =====================
+.home__sub-container {
    width: 100%;
    padding: 0 40px;
    display: flex;
@@ -349,7 +405,7 @@
 }
 
 // Header
-.home__sub-content .header {
+.home__sub-container .header {
    display: flex;
    align-items: center;
 
@@ -814,28 +870,6 @@
    padding-right: 25px;
    margin-right: -25px;
    @include scroll-1;
-   // &::-webkit-scrollbar {
-   //    width: 10px;
-   //    background-color: #fff;
-
-
-   //    &-thumb {
-   //       background-color: #ccc;
-   //       visibility: hidden;
-   //       opacity: 0;
-   //       border-radius: 10px;
-   //    }
-
-   //    &-track {
-   //       background-color: #fff;
-   //    }
-   // }
-
-   // &::-webkit-scrollbar-thumb:hover,
-   // &:hover::-webkit-scrollbar-thumb {
-   //    visibility: visible;
-   //    opacity: 1;
-   // }
 }
 
 .order .order__food {

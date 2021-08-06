@@ -59,8 +59,8 @@
             <div class="home">
                <div class="row">
                   <div class="col-8">
-                     <!-- Home Main Contents -->
-                     <div class="home__main-content">
+                     <!-- Home Main Container -->
+                     <div class="home__main-container d-none">
                         <!-- Header -->
                         <header class="header">
                            <div class="header__logo">
@@ -384,11 +384,42 @@
                         </div>
                         <!-- Menu End -->
                      </div>
-                     <!-- Home Main Contents End -->
+                     <!-- Home Main Container End -->
+
+                     <!-- Home Checkout Container -->
+                     <div class="home__checkout-container">
+                        <div class="home__checkout-header">
+                           <h2 class="home__checkout-heading">Checkout</h2>
+                        </div>
+                        <div class="checkout-item">
+                           <div class="row">
+                              <div class="col-4">
+                                 <header class="checkout-item__header">
+                                    <span class="checkout-item__desc">01</span>
+                                    <h3 class="checkout-item__heading">personal details</h3>
+                                 </header>
+                              </div>
+                              <div class="col-8">
+                                 <form action="" class="checkout-form" id="checkout-form-1">
+                                    <div class="checkout-form__group">
+                                       <input type="text" placeholder=" " class="checkout-form__input" id="checkout-form__input-fullname">
+                                       <label for="checkout-form__input-fullname" class="checkout-form__label">Full Name</label>
+                                    </div>
+                                    <div class="checkout-form__group">
+                                       <input type="number" placeholder=" " class="checkout-form__input" id="checkout-form__input-phone-number">
+                                       <label for="checkout-form__input-phone-number" class="checkout-form__label">Phone Number</label>
+                                    </div>
+                                 </form>
+                              </div>
+                           </div>
+                        </div>
+                        
+                     </div>
+                     <!-- Home Checkout Container End -->
                   </div>
                   <div class="col-4">
-                     <!-- Home Sub Contents -->
-                     <div class="home__sub-content">
+                     <!-- Home Sub Container -->
+                     <div class="home__sub-container">
                         <!-- Header -->
                         <header class="header">
                            <div class="header__notify  header__notify--has-notify">
@@ -401,7 +432,8 @@
                                  <div class="notify-item">
                                     <input type="checkbox" id="notify-item-1">
                                     <div class="notify-item__icon">
-                                       <img class="notify-item__img" src="https://freepngimg.com/download/iphone/68607-email-computer-iphone-icons-download-free-image.png"></img>
+                                       <img class="notify-item__img"
+                                          src="https://freepngimg.com/download/iphone/68607-email-computer-iphone-icons-download-free-image.png"></img>
                                     </div>
                                     <div class="notify-item__info">
                                        <h4 class="notify-item__title">Please Verify Your Email</h4>
@@ -411,7 +443,7 @@
                                           If you don't receive the email please click <a href="#">here</a>
                                        </p>
                                     </div>
-                                    
+
                                     <div class="notify-item__more">
                                        <label for="notify-item-1">
                                           <ion-icon class="notify-item__more-btn" name="ios-more"></ion-icon>
@@ -421,14 +453,16 @@
                                        </div>
                                     </div>
                                     <div class="notify-item__unread">
-                                       <ion-icon class="notify-item__unread-icon" name="ios-information-circle"></ion-icon>
-                                    
+                                       <ion-icon class="notify-item__unread-icon" name="ios-information-circle">
+                                       </ion-icon>
+
                                     </div>
                                  </div>
                                  <div class="notify-item">
                                     <input type="checkbox" id="notify-item-2">
                                     <div class="notify-item__icon">
-                                       <img class="notify-item__img" src="https://freepngimg.com/download/iphone/68607-email-computer-iphone-icons-download-free-image.png"></img>
+                                       <img class="notify-item__img"
+                                          src="https://freepngimg.com/download/iphone/68607-email-computer-iphone-icons-download-free-image.png"></img>
                                     </div>
                                     <div class="notify-item__info">
                                        <h4 class="notify-item__title">Please Verify Your Email</h4>
@@ -436,10 +470,10 @@
                                           We've just sent an email to xxxx@xxxx with a link to verify your email.
                                           <br>
                                           If you don't receive the email please click <a href="#">here</a>
-                                          
+
                                        </p>
                                     </div>
-                                    
+
                                     <div class="notify-item__more">
                                        <label for="notify-item-2">
                                           <ion-icon class="notify-item__more-btn" name="ios-more"></ion-icon>
@@ -449,14 +483,16 @@
                                        </div>
                                     </div>
                                     <div class="notify-item__unread">
-                                       <ion-icon class="notify-item__unread-icon" name="ios-information-circle"></ion-icon>
-                                    
+                                       <ion-icon class="notify-item__unread-icon" name="ios-information-circle">
+                                       </ion-icon>
+
                                     </div>
                                  </div>
                                  <div class="notify-item">
                                     <input type="checkbox" id="notify-item-2">
                                     <div class="notify-item__icon">
-                                       <img class="notify-item__img" src="https://freepngimg.com/download/iphone/68607-email-computer-iphone-icons-download-free-image.png"></img>
+                                       <img class="notify-item__img"
+                                          src="https://freepngimg.com/download/iphone/68607-email-computer-iphone-icons-download-free-image.png"></img>
                                     </div>
                                     <div class="notify-item__info">
                                        <h4 class="notify-item__title">Please Verify Your Email</h4>
@@ -464,10 +500,10 @@
                                           We've just sent an email to xxxx@xxxx with a link to verify your email.
                                           <br>
                                           If you don't receive the email please click <a href="#">here</a>
-                                          
+
                                        </p>
                                     </div>
-                                    
+
                                     <div class="notify-item__more">
                                        <label for="notify-item-2">
                                           <ion-icon class="notify-item__more-btn" name="ios-more"></ion-icon>
@@ -477,14 +513,16 @@
                                        </div>
                                     </div>
                                     <div class="notify-item__unread">
-                                       <ion-icon class="notify-item__unread-icon" name="ios-information-circle"></ion-icon>
-                                    
+                                       <ion-icon class="notify-item__unread-icon" name="ios-information-circle">
+                                       </ion-icon>
+
                                     </div>
                                  </div>
                                  <div class="notify-item">
                                     <input type="checkbox" id="notify-item-2">
                                     <div class="notify-item__icon">
-                                       <img class="notify-item__img" src="https://freepngimg.com/download/iphone/68607-email-computer-iphone-icons-download-free-image.png"></img>
+                                       <img class="notify-item__img"
+                                          src="https://freepngimg.com/download/iphone/68607-email-computer-iphone-icons-download-free-image.png"></img>
                                     </div>
                                     <div class="notify-item__info">
                                        <h4 class="notify-item__title">Please Verify Your Email</h4>
@@ -492,10 +530,9 @@
                                           We've just sent an email to xxxx@xxxx with a link to verify your email.
                                           <br>
                                           If you don't receive the email please click <a href="#">here</a>
-                                          
                                        </p>
                                     </div>
-                                    
+
                                     <div class="notify-item__more">
                                        <label for="notify-item-2">
                                           <ion-icon class="notify-item__more-btn" name="ios-more"></ion-icon>
@@ -505,14 +542,16 @@
                                        </div>
                                     </div>
                                     <div class="notify-item__unread">
-                                       <ion-icon class="notify-item__unread-icon" name="ios-information-circle"></ion-icon>
-                                    
+                                       <ion-icon class="notify-item__unread-icon" name="ios-information-circle">
+                                       </ion-icon>
+
                                     </div>
                                  </div>
                                  <div class="notify-item">
                                     <input type="checkbox" id="notify-item-2">
                                     <div class="notify-item__icon">
-                                       <img class="notify-item__img" src="https://freepngimg.com/download/iphone/68607-email-computer-iphone-icons-download-free-image.png"></img>
+                                       <img class="notify-item__img"
+                                          src="https://freepngimg.com/download/iphone/68607-email-computer-iphone-icons-download-free-image.png"></img>
                                     </div>
                                     <div class="notify-item__info">
                                        <h4 class="notify-item__title">Please Verify Your Email</h4>
@@ -520,10 +559,10 @@
                                           We've just sent an email to xxxx@xxxx with a link to verify your email.
                                           <br>
                                           If you don't receive the email please click <a href="#">here</a>
-                                          
+
                                        </p>
                                     </div>
-                                    
+
                                     <div class="notify-item__more">
                                        <label for="notify-item-2">
                                           <ion-icon class="notify-item__more-btn" name="ios-more"></ion-icon>
@@ -533,14 +572,16 @@
                                        </div>
                                     </div>
                                     <div class="notify-item__unread">
-                                       <ion-icon class="notify-item__unread-icon" name="ios-information-circle"></ion-icon>
-                                    
+                                       <ion-icon class="notify-item__unread-icon" name="ios-information-circle">
+                                       </ion-icon>
+
                                     </div>
                                  </div>
                                  <div class="notify-item">
                                     <input type="checkbox" id="notify-item-2">
                                     <div class="notify-item__icon">
-                                       <img class="notify-item__img" src="https://freepngimg.com/download/iphone/68607-email-computer-iphone-icons-download-free-image.png"></img>
+                                       <img class="notify-item__img"
+                                          src="https://freepngimg.com/download/iphone/68607-email-computer-iphone-icons-download-free-image.png"></img>
                                     </div>
                                     <div class="notify-item__info">
                                        <h4 class="notify-item__title">Please Verify Your Email</h4>
@@ -548,10 +589,10 @@
                                           We've just sent an email to xxxx@xxxx with a link to verify your email.
                                           <br>
                                           If you don't receive the email please click <a href="#">here</a>
-                                          
+
                                        </p>
                                     </div>
-                                    
+
                                     <div class="notify-item__more">
                                        <label for="notify-item-2">
                                           <ion-icon class="notify-item__more-btn" name="ios-more"></ion-icon>
@@ -561,12 +602,13 @@
                                        </div>
                                     </div>
                                     <div class="notify-item__unread">
-                                       <ion-icon class="notify-item__unread-icon" name="ios-information-circle"></ion-icon>
-                                    
+                                       <ion-icon class="notify-item__unread-icon" name="ios-information-circle">
+                                       </ion-icon>
+
                                     </div>
                                  </div>
-                                 
-                                 
+
+
                                  <div class="notify-delete-all">
                                     <span class="notify-delete-all-btn">Delete All</span>
                                  </div>
@@ -816,7 +858,8 @@
 
                      <div class="form__group">
                         <div class="form__input">
-                           <input type="password" name="loginPassword" id="login-password" class="form__control" placeholder=" ">
+                           <input type="password" name="loginPassword" id="login-password" class="form__control"
+                              placeholder=" ">
                            <label for="login-password" class="form__label">Password</label>
                            <div class="form__underline"></div>
                         </div>
@@ -827,20 +870,21 @@
                      <div class="form__aside">
                         <div class="form__group form__group--optional">
                            <div class="form__aside-login-remember form__input">
-                              <input id="login-remember-checkbox" type="checkbox" name="login-remember-checkbox" class="form__aside-login-remember-checkbox">
+                              <input id="login-remember-checkbox" type="checkbox" name="login-remember-checkbox"
+                                 class="form__aside-login-remember-checkbox">
                               <span class="form__aside-login-remember-desc">
                                  Remember Me
                               </span>
                            </div>
                            <span class="form__message"></span>
                         </div>
-                        
+
                         <div class="form__aside-help">
                            <span class="form__aside-switch-btn">Register</span>
                            <a href="#" class="form__aside-link">Forgot Password?</a>
                         </div>
                      </div>
-                     
+
                      <button class="form__control-btn btn">Sign in</button>
                   </form>
                </div>
@@ -881,7 +925,8 @@
                   <form action="" id="form-2" class="login-form form">
                      <div class="form__group">
                         <div class="form__input">
-                           <input type="text" name="fullname" id="register-fullname" class="form__control" placeholder=" ">
+                           <input type="text" name="fullname" id="register-fullname" class="form__control"
+                              placeholder=" ">
                            <label for="register-fullname" class="form__label">Full Name</label>
                            <div class="form__underline"></div>
                         </div>
@@ -890,7 +935,8 @@
 
                      <div class="form__group">
                         <div class="form__input">
-                           <input type="text" name="registerEmail" id="register-email" class="form__control" placeholder=" ">
+                           <input type="text" name="registerEmail" id="register-email" class="form__control"
+                              placeholder=" ">
                            <label for="register-email" class="form__label">Email</label>
                            <div class="form__underline"></div>
                         </div>
@@ -899,7 +945,8 @@
 
                      <div class="form__group">
                         <div class="form__input">
-                           <input type="password" name="registerPassword" id="register-password" class="form__control" placeholder=" ">
+                           <input type="password" name="registerPassword" id="register-password" class="form__control"
+                              placeholder=" ">
                            <label for="register-password" class="form__label">Password</label>
                            <div class="form__underline"></div>
                         </div>
@@ -908,7 +955,8 @@
 
                      <div class="form__group">
                         <div class="form__input">
-                           <input type="password" name="confirmPassword" id="confirm-password" class="form__control" placeholder=" ">
+                           <input type="password" name="confirmPassword" id="confirm-password" class="form__control"
+                              placeholder=" ">
                            <label for="confirm-password" class="form__label">Confirm Password</label>
                            <div class="form__underline"></div>
                         </div>
@@ -918,7 +966,8 @@
                      <div class="form__aside">
                         <div class="form__group">
                            <div class="form__aside-policy form__input">
-                              <input id="policy-checkbox" type="checkbox" name="policy-checkbox" class="form__aside-policy-checkbox">
+                              <input id="policy-checkbox" type="checkbox" name="policy-checkbox"
+                                 class="form__aside-policy-checkbox">
                               <span class="form__aside-policy-desc">
                                  I have read and agree to the
                                  <a href="#" class="form__aside-policy-link">Terms of Service</a>
@@ -926,8 +975,8 @@
                            </div>
                            <span class="form__message"></span>
                         </div>
-   
-   
+
+
                         <div class="form__aside-help">
                            <span class="form__aside-help-desc">
                               Already have an account?
