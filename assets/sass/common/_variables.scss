@@ -9,6 +9,8 @@ $gray-2: #F8F8FB;
 
 $danger-color: #DC3545;
 
+$blue-1: #0167fa;
+
 
 // Animations
 
@@ -48,3 +50,28 @@ $danger-color: #DC3545;
    }
 }
 
+
+// Mixin
+@mixin scroll-1($bgc-color : #fff) {
+   &::-webkit-scrollbar {
+      width: 10px;
+      background-color: $bgc-color;
+      
+      &-thumb {
+         background-color: #ccc;
+         visibility: hidden;
+         opacity: 0;
+         border-radius: 10px;
+      }
+
+      &-track {
+         background-color: $bgc-color;
+      }
+   }
+
+   &::-webkit-scrollbar-thumb:hover,
+   &:hover::-webkit-scrollbar-thumb {
+      visibility: visible;
+      opacity: 1;
+   }
+}

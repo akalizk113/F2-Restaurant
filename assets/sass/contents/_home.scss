@@ -17,7 +17,7 @@
    }
 }
 
-// Home main content
+//===================== Home main content =====================
 .home__main-content {
    padding: 0 30px 0 40px;
    background-color: $gray-2;
@@ -25,29 +25,30 @@
    max-height: 100%;
    overflow-y: scroll;
    overflow-x: hidden;
+   @include scroll-1($gray-2);
 
-   &::-webkit-scrollbar {
-      width: 10px;
-      background-color: #fff;
+   // &::-webkit-scrollbar {
+   //    width: 10px;
+   //    background-color: #fff;
 
 
-      &-thumb {
-         background-color: #ccc;
-         visibility: hidden;
-         opacity: 0;
-         border-radius: 10px;
-      }
+   //    &-thumb {
+   //       background-color: #ccc;
+   //       visibility: hidden;
+   //       opacity: 0;
+   //       border-radius: 10px;
+   //    }
 
-      &-track {
-         background-color: $gray-2;
-      }
-   }
+   //    &-track {
+   //       background-color: $gray-2;
+   //    }
+   // }
 
-   &::-webkit-scrollbar-thumb:hover,
-   &:hover::-webkit-scrollbar-thumb {
-      visibility: visible;
-      opacity: 1;
-   }
+   // &::-webkit-scrollbar-thumb:hover,
+   // &:hover::-webkit-scrollbar-thumb {
+   //    visibility: visible;
+   //    opacity: 1;
+   // }
 }
 
 // Header
@@ -339,7 +340,7 @@
 }
 
 
-// Home Sub Content
+// ===================== Home Sub Content =====================
 .home__sub-content {
    width: 100%;
    padding: 0 40px;
@@ -365,18 +366,48 @@
       transition: all 0.2s;
       position: relative;
 
-      &:hover {
-         background-color: $secondary-color;
-         color: $text-color;
-         cursor: pointer;
-      }
-
       &--has-notify {
          .header__notify-count {
             display: flex;
          }
       }
 
+      & > input[type="checkbox"] {
+         display: none;
+         &:checked ~ .header__notify-container {
+            display: block;
+         }
+         &:checked + label:before {
+            display: block;
+         }
+      }
+      & > label:nth-child(2) {
+         width: 100%;
+         height: 100%;
+         border-radius: 50%;
+         display: flex;
+         &:hover {
+            cursor: pointer;
+            color: $text-color;
+            background-color: $secondary-color;
+           
+         }
+         &:before {
+            content: '';
+            position: absolute;
+            right: -10px;
+            top: calc(100% + 18px);
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+            border-color: transparent transparent #fff  #fff;
+            transform-origin: 0 0;
+            transform: rotate(135deg);
+            box-shadow: -2px 2px 5px rgb(0 0 0 / 15%);
+            z-index: 10;
+            display: none;
+         }
+      }
       &-icon {
          margin: auto;
          font-size: 1.4rem;
@@ -397,6 +428,160 @@
          border-radius: 50%;
          background-color: $primary-color;
          color: #fff;
+         &:hover {
+            cursor: pointer;
+         }
+      }
+
+      &-container {
+         width: 350px;
+         position: absolute;
+         top: calc(100% + 15px);
+         right: -20px;
+         background-color: #fff;
+         z-index: 10;
+         border-radius: 20px;
+         box-shadow: 2px 2px 5px rgb(0 0 0 / 20%);
+         max-height: 500px;
+         color: $text-color;
+         padding: 10px 0 10px 10px;
+         display: none;
+         overflow-y: scroll;
+         @include scroll-1(transparent);
+         
+         .notify-item {
+            padding: 16px;
+            display: flex;
+            background-color: #fff;
+            border-bottom: 1px solid #ccc;
+            max-height: 60px;
+            position: relative;
+            overflow-y: hidden;
+            -webkit-transition: all 0.4s ease;
+            transition: max-height 0.4s ease-in;
+            cursor: default;
+            &:hover {
+               border-radius: 10px;
+               background-color: $secondary-color;
+               .notify-item__more {
+                  display: flex;
+               }
+            }
+            
+            &__icon {
+               margin: auto 16px auto 0;
+               transition: all 0.3s ease-in;
+               img {
+                  width: 40px;
+                  border-radius: 50%;
+               }
+            }
+            &__info {
+
+            }
+            &__title {
+               margin: 8px 0;
+            }
+            &__desc {
+               font-size: 0.875rem;
+               margin: 8px 0;
+               line-height: 1.4;
+            }
+            &__more {
+               min-width: 30px;
+               height: 30px;
+               border-radius: 50%;
+               display: none;
+               position: absolute;
+               top: 50%;
+               right: 50px;
+               transform: translateY(-50%);
+               background-color: #fff;
+               z-index: 1;
+               box-shadow: 2px 2px 5px rgb(0 0 0 / 10%);
+               &:hover {
+                  cursor: pointer;
+               }
+               & > label {
+                  width: 100%;
+                  height: 100%;
+                  border-radius: 50%;
+                  display: flex;
+                  &:hover {
+                     background-color: #ccc;
+                     cursor: pointer;
+                  }
+               }
+               &-btn {
+                  font-size: 1.2rem;
+                  margin: auto;
+               }
+               .more-menu {
+                  position: absolute;
+                  top: calc(100% + 10px);
+                  right: -10px;
+                  background-color: #fff;
+                  padding: 8px;
+                  z-index: 10;
+                  border-radius: 5px;
+                  box-shadow: 2px 2px 5px rgb(0 0 0 / 10%), -2px -2px 5px rgb(0 0 0 / 10%);
+                  min-width: 100px;
+                  text-align: center;
+                  display: none;
+                  &:before {
+                     content: '';
+                     position: absolute;
+                     bottom: 100%;
+                     right: 20px;
+                     width: 0;
+                     height: 0;
+                     border-left: 8px solid transparent;
+                     border-right: 8px solid transparent;
+                     border-bottom: 8px solid #fff;
+                  }
+                  &__item {
+                     display: block;
+                     padding: 4px 0;
+                     border-radius: 5px;
+                     &:hover {
+                        background-color: #ccc;
+                     }
+                  }
+                  
+               }
+            }
+
+            & > input[type="checkbox"] {
+               display: none;
+               &:checked ~ .notify-item__more {
+                  display: flex;
+                  .more-menu {
+                     display: block;
+                  }
+               }
+            }
+            &__unread {
+               margin: auto;
+               &-icon {
+                  color: $blue-1;
+               }
+            }
+         }
+
+         .notify-delete-all {
+            padding: 8px;
+            text-align: center;
+            &:hover {
+               .notify-delete-all-btn {
+                  text-decoration: underline;
+               }
+            }
+            &-btn {
+               font-size: 0.875rem;
+               color: $primary-color
+               
+            }
+         }
       }
    }
 
@@ -459,7 +644,7 @@
    .card-logo {
       position: absolute;
       top: 0;
-      z-index: 9999;
+      z-index: 9;
 
    }
 
@@ -473,17 +658,17 @@
 
       &-1 {
          background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20190222/ourmid/pngtree-orange-gradient-background-illustration-imageorange-background-illustrationgradient-image_60012.jpg');
+         z-index: 3;
+      }
+      
+      &-2 {
+         background-image: url('');
          transform: rotateZ(-8deg);
          z-index: 2;
       }
-
-      &-2 {
-         background-image: url('https://github.com/akalizk113/F2-Restaurant/blob/main/assets/img/card_background/black.jpg');
-         z-index: 3;
-      }
-
+      
       &-3 {
-         background-image: url('https://github.com/akalizk113/F2-Restaurant/blob/main/assets/img/card_background/deep-blue.jpg');
+         background-image: url('');
          transform: rotateZ(-16deg);
          z-index: 1;
       }
@@ -494,11 +679,11 @@
    position: absolute;
    inset: 0;
    color: #fff;
-   color: #F5BD02;
+   // color: #F5BD02;   
    display: flex;
    flex-direction: column;
    padding: 16px;
-   z-index: 9999;
+   z-index: 9;
 
    &__info {
       margin-top: auto;
@@ -605,28 +790,29 @@
    overflow-y: scroll;
    padding-right: 25px;
    margin-right: -25px;
-   &::-webkit-scrollbar {
-      width: 10px;
-      background-color: #fff;
+   @include scroll-1;
+   // &::-webkit-scrollbar {
+   //    width: 10px;
+   //    background-color: #fff;
 
 
-      &-thumb {
-         background-color: #ccc;
-         visibility: hidden;
-         opacity: 0;
-         border-radius: 10px;
-      }
+   //    &-thumb {
+   //       background-color: #ccc;
+   //       visibility: hidden;
+   //       opacity: 0;
+   //       border-radius: 10px;
+   //    }
 
-      &-track {
-         background-color: #fff;
-      }
-   }
+   //    &-track {
+   //       background-color: #fff;
+   //    }
+   // }
 
-   &::-webkit-scrollbar-thumb:hover,
-   &:hover::-webkit-scrollbar-thumb {
-      visibility: visible;
-      opacity: 1;
-   }
+   // &::-webkit-scrollbar-thumb:hover,
+   // &:hover::-webkit-scrollbar-thumb {
+   //    visibility: visible;
+   //    opacity: 1;
+   // }
 }
 
 .order .order__food {

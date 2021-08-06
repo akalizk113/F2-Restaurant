@@ -392,8 +392,72 @@
                         <!-- Header -->
                         <header class="header">
                            <div class="header__notify  header__notify--has-notify">
-                              <ion-icon class="header__notify-icon" name="ios-notifications-outline"></ion-icon>
-                              <span class="header__notify-count">4</span>
+                              <input type="checkbox" id="header__notify-checkbox">
+                              <label for="header__notify-checkbox">
+                                 <ion-icon class="header__notify-icon" name="ios-notifications-outline"></ion-icon>
+                              </label>
+                              <label for="header__notify-checkbox" class="header__notify-count">4</label>
+                              <div class="header__notify-container">
+                                 <div class="notify-item">
+                                    <input type="checkbox" id="notify-item-1">
+                                    <div class="notify-item__icon">
+                                       <img class="notify-item__img" src="https://freepngimg.com/download/iphone/68607-email-computer-iphone-icons-download-free-image.png"></img>
+                                    </div>
+                                    <div class="notify-item__info">
+                                       <h4 class="notify-item__title">Please Verify Your Email</h4>
+                                       <p class="notify-item__desc">
+                                          We've just sent an email to xxxx@xxxx with a link to verify your email.
+                                          <br>
+                                          If you don't receive the email please click <a href="#">here</a>
+                                       </p>
+                                    </div>
+                                    
+                                    <div class="notify-item__more">
+                                       <label for="notify-item-1">
+                                          <ion-icon class="notify-item__more-btn" name="ios-more"></ion-icon>
+                                       </label>
+                                       <div class="more-menu">
+                                          <span class="more-menu__item">Delete</span>
+                                       </div>
+                                    </div>
+                                    <div class="notify-item__unread">
+                                       <ion-icon class="notify-item__unread-icon" name="ios-information-circle"></ion-icon>
+                                    
+                                    </div>
+                                 </div>
+                                 <div class="notify-item">
+                                    <input type="checkbox" id="notify-item-2">
+                                    <div class="notify-item__icon">
+                                       <img class="notify-item__img" src="https://freepngimg.com/download/iphone/68607-email-computer-iphone-icons-download-free-image.png"></img>
+                                    </div>
+                                    <div class="notify-item__info">
+                                       <h4 class="notify-item__title">Please Verify Your Email</h4>
+                                       <p class="notify-item__desc">
+                                          We've just sent an email to xxxx@xxxx with a link to verify your email.
+                                          <br>
+                                          If you don't receive the email please click <a href="#">here</a>
+                                          
+                                       </p>
+                                    </div>
+                                    
+                                    <div class="notify-item__more">
+                                       <label for="notify-item-2">
+                                          <ion-icon class="notify-item__more-btn" name="ios-more"></ion-icon>
+                                       </label>
+                                       <div class="more-menu">
+                                          <span class="more-menu__item">Delete</span>
+                                       </div>
+                                    </div>
+                                    <div class="notify-item__unread">
+                                       <ion-icon class="notify-item__unread-icon" name="ios-information-circle"></ion-icon>
+                                    
+                                    </div>
+                                 </div>
+                                 
+                                 <div class="notify-delete-all">
+                                    <span class="notify-delete-all-btn">Delete All</span>
+                                 </div>
+                              </div>
                            </div>
 
                            <span class="auth-required d-none">
@@ -609,9 +673,9 @@
    <!-- Main Body End -->
 
    <!-- Modal -->
-   <div class="modal">
+   <div class="modal d-none">
       <div class="modal__overlay"></div>
-      <div class="modal__body">
+      <div class="modal__body modal__body--has-alert">
          <!-- Close Button -->
          <div class="modal__body-close-btn">
             <ion-icon class="modal__body-close-btn-icon" name="ios-close"></ion-icon>
@@ -619,9 +683,9 @@
          <!-- Close Button End -->
 
          <!-- Auth Form -->
-         <div class="auth-form">
+         <div class="auth-form d-none">
             <!-- Login Form -->
-            <div class="auth-form__container">
+            <div class="auth-form__container d-none">
                <header class="auth-form__header">
                   <h2 class="auth-form__heading">Login</h2>
                </header>
@@ -648,12 +712,22 @@
                      </div>
 
                      <div class="form__aside">
+                        <div class="form__group form__group--optional">
+                           <div class="form__aside-login-remember form__input">
+                              <input id="login-remember-checkbox" type="checkbox" name="login-remember-checkbox" class="form__aside-login-remember-checkbox">
+                              <span class="form__aside-login-remember-desc">
+                                 Remember Me
+                              </span>
+                           </div>
+                           <span class="form__message"></span>
+                        </div>
+                        
                         <div class="form__aside-help">
                            <span class="form__aside-switch-btn">Register</span>
                            <a href="#" class="form__aside-link">Forgot Password?</a>
                         </div>
                      </div>
-
+                     
                      <button class="form__control-btn btn">Sign in</button>
                   </form>
                </div>
@@ -683,8 +757,99 @@
                </footer>
             </div>
             <!-- Login Form End -->
+
+            <!-- Register Form -->
+            <div class="auth-form__container">
+               <header class="auth-form__header">
+                  <h2 class="auth-form__heading">Create a new account</h2>
+               </header>
+
+               <div class="auth-form__form">
+                  <form action="" id="form-2" class="login-form form">
+                     <div class="form__group">
+                        <div class="form__input">
+                           <input type="text" name="fullname" id="register-fullname" class="form__control" placeholder=" ">
+                           <label for="register-fullname" class="form__label">Full Name</label>
+                           <div class="form__underline"></div>
+                        </div>
+                        <span class="form__message"></span>
+                     </div>
+
+                     <div class="form__group">
+                        <div class="form__input">
+                           <input type="text" name="registerEmail" id="register-email" class="form__control" placeholder=" ">
+                           <label for="register-email" class="form__label">Email</label>
+                           <div class="form__underline"></div>
+                        </div>
+                        <span class="form__message"></span>
+                     </div>
+
+                     <div class="form__group">
+                        <div class="form__input">
+                           <input type="password" name="registerPassword" id="register-password" class="form__control" placeholder=" ">
+                           <label for="register-password" class="form__label">Password</label>
+                           <div class="form__underline"></div>
+                        </div>
+                        <span class="form__message"></span>
+                     </div>
+
+                     <div class="form__group">
+                        <div class="form__input">
+                           <input type="password" name="confirmPassword" id="confirm-password" class="form__control" placeholder=" ">
+                           <label for="confirm-password" class="form__label">Confirm Password</label>
+                           <div class="form__underline"></div>
+                        </div>
+                        <span class="form__message"></span>
+                     </div>
+
+                     <div class="form__aside">
+                        <div class="form__group">
+                           <div class="form__aside-policy form__input">
+                              <input id="policy-checkbox" type="checkbox" name="policy-checkbox" class="form__aside-policy-checkbox">
+                              <span class="form__aside-policy-desc">
+                                 I have read and agree to the
+                                 <a href="#" class="form__aside-policy-link">Terms of Service</a>
+                              </span>
+                           </div>
+                           <span class="form__message"></span>
+                        </div>
+   
+   
+                        <div class="form__aside-help">
+                           <span class="form__aside-help-desc">
+                              Already have an account?
+                              <a href="#" class="form__aside-help-link">Sign in</a>
+                           </span>
+                        </div>
+                     </div>
+
+                     <button class="form__control-btn btn">Create New Account</button>
+                  </form>
+               </div>
+
+            </div>
+            <!-- Register Form End -->
          </div>
          <!-- Auth Form End -->
+
+         <!-- Alert -->
+         <div class="alert">
+            <header class="alert__header">
+               <h3 class="alert__title">Login Required</h3>
+            </header>
+            <div class="alert__container">
+               <p class="alert__desc">
+                  <span class="auth-required ">
+                     Please
+                     <button class="auth-required-login">Log in</button>
+                     or
+                     <button class="auth-required-signup">Sign up</button>
+                     to continue...
+                  </span>
+               </p>
+            </div>
+         </div>
+         <!-- Alert End -->
       </div>
    </div>
    <!-- Modal End -->
