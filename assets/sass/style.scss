@@ -427,11 +427,11 @@
             margin-right: 12px;
          }
          &--focus {
-            background-color: $blue-1;
+            background-color: $primary-color;
             color: #fff;
-            border-color: $blue-1;
+            border-color: $primary-color;
             &:hover {
-               background-color: $blue-1;
+               background-color: $primary-color;
                opacity: 0.8;
             }
          }
