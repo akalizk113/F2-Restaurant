@@ -320,7 +320,10 @@
 // ===================== Home Checkout Container =====================
 .home__checkout-container {
    flex: 1;
-   padding: 0 40px;
+   padding: 40px;
+   margin: -40px 0;
+   background-color: #fff;
+   border-left: 1px solid #ccc;
 }
 
 .home__checkout-header {
@@ -330,10 +333,13 @@
    text-transform: uppercase;
    font-weight: 800;
    letter-spacing: 2px;
-   margin-bottom: 40px;
+   // margin-bottom: 40px;
 }
 
 .checkout-item {
+   & > .row {
+      margin-bottom: 20px;
+   }
    &__header {
 
    }
@@ -346,12 +352,23 @@
       margin: 8px 0;
       font-weight: 800;
    }
+   &__subheading {
+      text-transform: capitalize;
+      margin-bottom: 0;
+      
+   }
 
    .checkout-form {
+      display: flex;
+      flex-wrap: wrap;
       &__group {
          position: relative;
          display: flex;
          margin-top: 24px;
+         width: 100%;
+         &--half {
+            width: 48%;
+         }
       }
       &__label {
          position: absolute;
@@ -360,11 +377,14 @@
          transform: translateY(-50%);
          display: inline-block;
          z-index: 1;
-         background-color: $gray-2;
+         // background-color: $gray-2;
+         background-color: #fff;
          padding: 0 6px;
          transition: all 0.3s;
          cursor: text;
          color: rgb(156, 156, 156);
+         font-size: 0.875rem;
+         text-transform: capitalize;
       }
       &__input {
          flex: 1;
@@ -375,7 +395,7 @@
          border-width: 1px;
          border-style: solid;
          border-color: #ccc;
-         background-color: $gray-2;
+         // background-color: $gray-2;
          transition: all 0.3s;
          &:not(:placeholder-shown),
          &:focus {
@@ -390,6 +410,48 @@
          &::-webkit-outer-spin-button {
             appearance: none;
             display: none;
+         }
+      }
+      &__radio {
+         position: absolute;
+         top: 50%;
+         right: 8px;
+         transform: translateY(-50%);
+         &:checked + .shipphing-method{
+            border-color: $blue-1;
+            .shipphing-method__price {
+               color: $blue-1;
+            }
+         }
+      }
+      .shipphing-method {
+         display: flex;
+         flex: 1;
+         padding: 8px;
+         align-items: center;
+         border: 1px solid #ccc;
+         border-radius: 10px;
+         &__logo {
+            width: 40px;
+            object-fit: contain;
+            margin: 0 8px;
+         }
+         &__info {
+            &-name {
+               margin-top: 0;
+               margin-bottom: 0;
+            }
+            &-delivery {
+               margin: 0;
+               font-size: 0.75rem;
+               &-time {
+               }
+            }
+         }
+         &__price {
+            font-size: 0.8125rem;
+            margin-left: auto;
+            margin-right: 20px;
          }
       }
    }

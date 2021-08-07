@@ -574,7 +574,10 @@ body {
 
 .home__checkout-container {
   flex: 1;
-  padding: 0 40px;
+  padding: 40px;
+  margin: -40px 0;
+  background-color: #fff;
+  border-left: 1px solid #ccc;
 }
 
 .home__checkout-header {
@@ -585,9 +588,11 @@ body {
   text-transform: uppercase;
   font-weight: 800;
   letter-spacing: 2px;
-  margin-bottom: 40px;
 }
 
+.checkout-item > .row {
+  margin-bottom: 20px;
+}
 .checkout-item__desc {
   font-size: 0.875rem;
   color: #80838B;
@@ -597,10 +602,22 @@ body {
   margin: 8px 0;
   font-weight: 800;
 }
+.checkout-item__subheading {
+  text-transform: capitalize;
+  margin-bottom: 0;
+}
+.checkout-item .checkout-form {
+  display: flex;
+  flex-wrap: wrap;
+}
 .checkout-item .checkout-form__group {
   position: relative;
   display: flex;
   margin-top: 24px;
+  width: 100%;
+}
+.checkout-item .checkout-form__group--half {
+  width: 48%;
 }
 .checkout-item .checkout-form__label {
   position: absolute;
@@ -609,11 +626,13 @@ body {
   transform: translateY(-50%);
   display: inline-block;
   z-index: 1;
-  background-color: #F8F8FB;
+  background-color: #fff;
   padding: 0 6px;
   transition: all 0.3s;
   cursor: text;
   color: #9c9c9c;
+  font-size: 0.875rem;
+  text-transform: capitalize;
 }
 .checkout-item .checkout-form__input {
   flex: 1;
@@ -624,7 +643,6 @@ body {
   border-width: 1px;
   border-style: solid;
   border-color: #ccc;
-  background-color: #F8F8FB;
   transition: all 0.3s;
 }
 .checkout-item .checkout-form__input:not(:placeholder-shown), .checkout-item .checkout-form__input:focus {
@@ -637,6 +655,44 @@ body {
 .checkout-item .checkout-form__input::-webkit-inner-spin-button, .checkout-item .checkout-form__input::-webkit-outer-spin-button {
   appearance: none;
   display: none;
+}
+.checkout-item .checkout-form__radio {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+}
+.checkout-item .checkout-form__radio:checked + .shipphing-method {
+  border-color: #0167fa;
+}
+.checkout-item .checkout-form__radio:checked + .shipphing-method .shipphing-method__price {
+  color: #0167fa;
+}
+.checkout-item .checkout-form .shipphing-method {
+  display: flex;
+  flex: 1;
+  padding: 8px;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+.checkout-item .checkout-form .shipphing-method__logo {
+  width: 40px;
+  object-fit: contain;
+  margin: 0 8px;
+}
+.checkout-item .checkout-form .shipphing-method__info-name {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.checkout-item .checkout-form .shipphing-method__info-delivery {
+  margin: 0;
+  font-size: 0.75rem;
+}
+.checkout-item .checkout-form .shipphing-method__price {
+  font-size: 0.8125rem;
+  margin-left: auto;
+  margin-right: 20px;
 }
 
 .home__sub-container {
