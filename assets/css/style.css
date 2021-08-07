@@ -1512,6 +1512,8 @@ body {
 
 .modal .alert {
   padding: 0 32px;
+  min-width: 360px;
+  max-width: 100%;
 }
 .modal .alert__header {
   background-color: #FFE2BA;
@@ -1522,9 +1524,51 @@ body {
 }
 .modal .alert__title {
   margin: 0;
+  margin-right: 60px;
 }
 .modal .alert__container {
   padding: 16px 0;
+}
+.modal .alert .payment-confirm__item {
+  display: flex;
+  margin: 16px 0;
+}
+.modal .alert .payment-confirm__item-desc {
+  margin: 0;
+}
+.modal .alert .payment-confirm__item-value {
+  margin-left: auto;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.modal .alert .payment-confirm__control {
+  margin-top: 32px;
+  text-align: right;
+}
+.modal .alert .payment-confirm__btn {
+  min-width: 60px;
+  background-color: #fff;
+  padding: 4px 12px;
+  outline: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+.modal .alert .payment-confirm__btn:hover {
+  cursor: pointer;
+  background-color: #ddd;
+}
+.modal .alert .payment-confirm__btn:first-child {
+  margin-right: 12px;
+}
+.modal .alert .payment-confirm__btn--focus {
+  background-color: #0167fa;
+  color: #fff;
+  border-color: #0167fa;
+}
+.modal .alert .payment-confirm__btn--focus:hover {
+  background-color: #0167fa;
+  opacity: 0.8;
 }
 
 /*# sourceMappingURL=style.css.map */

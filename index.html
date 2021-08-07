@@ -966,7 +966,7 @@
    <!-- Main Body End -->
 
    <!-- Modal -->
-   <div class="modal d-none">
+   <div class="modal">
       <div class="modal__overlay"></div>
       <div class="modal__body modal__body--has-alert">
          <!-- Close Button -->
@@ -1135,21 +1135,38 @@
          <!-- Alert -->
          <div class="alert">
             <header class="alert__header">
-               <h3 class="alert__title">Login Required</h3>
+               <h3 class="alert__title d-none">Login Required</h3>
+               <h3 class="alert__title">Payment Confirm</h3>
             </header>
             <div class="alert__container">
                <p class="alert__desc">
-                  <span class="auth-required ">
+                  <span class="auth-required d-none">
                      Please
                      <button class="auth-required-login">Log in</button>
                      or
                      <button class="auth-required-signup">Sign up</button>
                      to continue...
                   </span>
+
+                  <div class="payment-confirm">
+                     <div class="payment-confirm__item">
+                        <h4 class="payment-confirm__item-desc">You will pay: </h4>
+                        <span class="payment-confirm__item-value" >$80.99</span>
+                     </div>
+                     <div class="payment-confirm__item">
+                        <h4 class="payment-confirm__item-desc">Remaining Balance:</h4>
+                        <span class="payment-confirm__item-value" >$2361.01</span>
+                     </div>
+                     <div class="payment-confirm__control">
+                        <button class="payment-confirm__btn">Cancel</button>
+                        <button class="payment-confirm__btn payment-confirm__btn--focus">OK</button>
+                     </div>
+                  </div>
                </p>
             </div>
          </div>
          <!-- Alert End -->
+
       </div>
    </div>
    <!-- Modal End -->
