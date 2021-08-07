@@ -41,6 +41,15 @@ $blue-1: #0167fa;
    }
 }
 
+@keyframes slideRTL {
+   from {
+      transform: translateX(100%);
+   }
+   to {
+      transform: translateX(0);
+   }
+}
+
 @keyframes growUp {
    from {
       transform: scale(30%);

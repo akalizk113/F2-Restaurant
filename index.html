@@ -390,6 +390,10 @@
                      <div class="home__checkout-container">
                         <div class="home__checkout-header">
                            <h2 class="home__checkout-heading">Checkout</h2>
+                           <span class="home__checkout-back-btn btn-2">
+                              <span class="btn-2__desc">Back</span>
+                              <ion-icon class="btn-2__icon" name="ios-arrow-round-forward"></ion-icon>
+                           </span>
                         </div>
                         <div class="checkout-item">
                            <div class="row">
@@ -402,12 +406,16 @@
                               <div class="col-8">
                                  <form action="" class="checkout-form" id="checkout-form-1">
                                     <div class="checkout-form__group">
-                                       <input type="text" placeholder=" " class="checkout-form__input" id="checkout-form__input-fullname">
-                                       <label for="checkout-form__input-fullname" class="checkout-form__label">Full Name</label>
+                                       <input type="text" placeholder=" " class="checkout-form__input"
+                                          id="checkout-form__input-fullname">
+                                       <label for="checkout-form__input-fullname" class="checkout-form__label">Full
+                                          Name</label>
                                     </div>
                                     <div class="checkout-form__group">
-                                       <input type="number" placeholder=" " class="checkout-form__input" id="checkout-form__input-phone-number">
-                                       <label for="checkout-form__input-phone-number" class="checkout-form__label">Phone Number</label>
+                                       <input type="number" placeholder=" " class="checkout-form__input"
+                                          id="checkout-form__input-phone-number">
+                                       <label for="checkout-form__input-phone-number" class="checkout-form__label">Phone
+                                          Number</label>
                                     </div>
                                  </form>
                               </div>
@@ -421,64 +429,83 @@
                               </div>
                               <div class="col-8">
                                  <h4 class="checkout-item__subheading">shipping address</h4>
-                                 <form action="" class="checkout-form" id="checkout-form-3">
+                                 <form action="" class="checkout-form" id="checkout-form-2">
                                     <div class="checkout-form__group">
-                                       <input type="text" placeholder=" " class="checkout-form__input" id="checkout-form__input-street">
-                                       <label for="checkout-form__input-street" class="checkout-form__label">Street Address</label>
+                                       <input type="text" placeholder=" " class="checkout-form__input"
+                                          id="checkout-form__input-street">
+                                       <label for="checkout-form__input-street" class="checkout-form__label">Street
+                                          Address</label>
                                     </div>
                                     <div class="checkout-form__group checkout-form__group--half">
-                                       <input type="text" placeholder=" " class="checkout-form__input" id="checkout-form__input-district">
-                                       <label for="checkout-form__input-district" class="checkout-form__label">District</label>
+                                       <input type="text" placeholder=" " class="checkout-form__input"
+                                          id="checkout-form__input-district">
+                                       <label for="checkout-form__input-district"
+                                          class="checkout-form__label">District</label>
                                     </div>
                                     <div class="checkout-form__group checkout-form__group--half ms-auto">
-                                       <input type="text" placeholder=" " class="checkout-form__input" id="checkout-form__input-city">
+                                       <input type="text" placeholder=" " class="checkout-form__input"
+                                          id="checkout-form__input-city">
                                        <label for="checkout-form__input-city" class="checkout-form__label">city</label>
                                     </div>
                                  </form>
+
                                  <h4 class="checkout-item__subheading">shipping method</h4>
                                  <form action="" class="checkout-form" id="checkout-form-3">
                                     <div class="checkout-form__group checkout-form__group--half">
-                                       <input type="radio" name="shipping-method" class="checkout-form__radio" id="shipping-method-1">
+                                       <input type="radio" checked name="shipping-method" class="checkout-form__radio"
+                                          id="shipping-method-1">
                                        <label for="shipping-method-1" class="shipphing-method">
-                                          <img src="https://www.grab.com/vn/wp-content/themes/grabsg/public/img/Grab_logo.png" alt="" class="shipphing-method__logo">
+                                          <img height="20" src="./assets/img/f2.svg" alt=""
+                                             class="shipphing-method__logo">
                                           <div class="shipphing-method__info">
-                                             <h5 class="shipphing-method__info-name">Grab</h5>
-                                             <p class="shipphing-method__info-delivery">Delivery: <span class="shipphing-method__info-delivery-time">Today</span></p>
+                                             <h5 class="shipphing-method__info-name">F2 Restautant</h5>
+                                             <p class="shipphing-method__info-delivery">Delivery: <span
+                                                   class="shipphing-method__info-delivery-time">20m</span></p>
                                           </div>
-                                          <span class="shipphing-method__price">$0.99</span>
+                                          <span class="shipphing-method__price">$0.69</span>
                                        </label>
                                     </div>
                                     <div class="checkout-form__group checkout-form__group--half ms-auto">
-                                       <input type="radio" name="shipping-method" class="checkout-form__radio" id="shipping-method-2">
+                                       <input type="radio" name="shipping-method" class="checkout-form__radio"
+                                          id="shipping-method-2">
                                        <label for="shipping-method-2" class="shipphing-method">
-                                          <img src="https://www.grab.com/vn/wp-content/themes/grabsg/public/img/Grab_logo.png" alt="" class="shipphing-method__logo">
+                                          <img
+                                             src="https://www.grab.com/vn/wp-content/themes/grabsg/public/img/Grab_logo.png"
+                                             alt="" class="shipphing-method__logo">
                                           <div class="shipphing-method__info">
                                              <h5 class="shipphing-method__info-name">Grab</h5>
-                                             <p class="shipphing-method__info-delivery">Delivery: <span class="shipphing-method__info-delivery-time">Today</span></p>
+                                             <p class="shipphing-method__info-delivery">Delivery: <span
+                                                   class="shipphing-method__info-delivery-time">20m</span></p>
                                           </div>
                                           <span class="shipphing-method__price">$0.99</span>
                                        </label>
                                     </div>
                                     <div class="checkout-form__group checkout-form__group--half">
-                                       <input type="radio" name="shipping-method" class="checkout-form__radio" id="shipping-method-3">
+                                       <input type="radio" name="shipping-method" class="checkout-form__radio"
+                                          id="shipping-method-3">
                                        <label for="shipping-method-3" class="shipphing-method">
-                                          <img src="https://www.grab.com/vn/wp-content/themes/grabsg/public/img/Grab_logo.png" alt="" class="shipphing-method__logo">
+                                          <img
+                                             src="https://www.now.vn/app/assets/img/nowvn.png?2cdbc2f7a58d86fa67752cc7f91f3cec"
+                                             alt="" class="shipphing-method__logo">
                                           <div class="shipphing-method__info">
-                                             <h5 class="shipphing-method__info-name">Grab</h5>
-                                             <p class="shipphing-method__info-delivery">Delivery: <span class="shipphing-method__info-delivery-time">Today</span></p>
+                                             <h5 class="shipphing-method__info-name">Now</h5>
+                                             <p class="shipphing-method__info-delivery">Delivery: <span
+                                                   class="shipphing-method__info-delivery-time">20m</span></p>
                                           </div>
                                           <span class="shipphing-method__price">$0.99</span>
                                        </label>
                                     </div>
                                     <div class="checkout-form__group checkout-form__group--half ms-auto">
-                                       <input type="radio" name="shipping-method" class="checkout-form__radio" id="shipping-method-4">
+                                       <input type="radio" name="shipping-method" class="checkout-form__radio"
+                                          id="shipping-method-4">
                                        <label for="shipping-method-4" class="shipphing-method">
-                                          <img src="https://www.grab.com/vn/wp-content/themes/grabsg/public/img/Grab_logo.png" alt="" class="shipphing-method__logo">
+                                          <ion-icon class="shipphing-method__logo" name="ios-cube"></ion-icon>
                                           <div class="shipphing-method__info">
-                                             <h5 class="shipphing-method__info-name">Grab</h5>
-                                             <p class="shipphing-method__info-delivery">Delivery: <span class="shipphing-method__info-delivery-time">Today</span></p>
+                                             <h5 class="shipphing-method__info-name">Collect in person</h5>
+                                             <p class="shipphing-method__info-delivery">Delivery: <span
+                                                   class="shipphing-method__info-delivery-time">any</span></p>
                                           </div>
-                                          <span class="shipphing-method__price">$0.99</span>
+                                          <span class="shipphing-method__price">Free</span>
                                        </label>
                                     </div>
                                  </form>
@@ -488,15 +515,43 @@
                               <div class="col-4">
                                  <header class="checkout-item__header">
                                     <span class="checkout-item__desc">03</span>
-                                    <h3 class="checkout-item__heading">Paymennt details</h3>
+                                    <h3 class="checkout-item__heading">Payment details</h3>
                                  </header>
                               </div>
                               <div class="col-8">
+                                 <form action="#" class="checkout-form" id="checkout-form-4">
+                                    <div class="checkout-form__group">
+                                       <input type="text" placeholder=" " class="checkout-form__input"
+                                          id="checkout-form__input-discount">
+                                       <label for="checkout-form__input-discount" class="checkout-form__label">Discount
+                                          Code</label>
+                                       <button class="apply-btn">Apply</button>
+                                    </div>
+                                 </form>
+                                 <div class="payment-details">
+                                    <div class="payment-details__item">
+                                       <h4 class="payment-details__desc">subtotal:</h4>
+                                       <span class="payment-details__value">$100</span>
+                                    </div>
+                                    <div class="payment-details__item">
+                                       <h4 class="payment-details__desc">shipping cost:</h4>
+                                       <span class="payment-details__value">+ $0.99</span>
+                                    </div>
+                                    <div class="payment-details__item">
+                                       <h4 class="payment-details__desc">discount:</h4>
+                                       <span class="payment-details__value payment-details__value--discount ">-
+                                          $20</span>
+                                    </div>
 
+                                    <div class="payment-details__item">
+                                       <h4 class="payment-details__desc">total:</h4>
+                                       <span class="payment-details__value total-cost">$80.99</span>
+                                    </div>
+                                 </div>
                               </div>
                            </div>
                         </div>
-                        
+
                      </div>
                      <!-- Home Checkout Container End -->
                   </div>
