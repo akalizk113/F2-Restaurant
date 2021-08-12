@@ -560,7 +560,8 @@
                      <div class="home__sub-container">
                         <!-- Header -->
                         <header class="header">
-                           <div class="header__notify  header__notify--has-notify">
+                           <!-- Header Notify -->
+                           <div class="header__notify">
                               <input type="checkbox" id="header__notify-checkbox">
                               <label for="header__notify-checkbox" class="header__notify-count">4</label>
                               <label for="header__notify-checkbox">
@@ -752,14 +753,16 @@
                                  </div>
                               </div>
                            </div>
+                           <!-- Header Notify End -->
 
-                           <span class="auth-required d-none">
+                           <span class="auth-required">
                               <button class="auth-required-login">Log in</button>
                               /
                               <button class="auth-required-signup">Sign up</button>
                            </span>
 
-                           <div class="user">
+                           <!-- User -->
+                           <div class="user  d-none">
                               <div class="user__avatar">
                                  <img width="30" height="30"
                                     src="https://thuthuatnhanh.com/wp-content/uploads/2019/07/hinh-anh-chibi-yasuo-lol-ngau-dep-chat-nhat-5.jpg"
@@ -770,9 +773,18 @@
                                  <span class="user__info-role">User</span>
                               </div>
                               <div class="user__control">
-                                 <ion-icon class="user__control-icon" name="ios-arrow-down"></ion-icon>
+                                 <input type="checkbox" id="user__control-checkbox">
+                                 <label for="user__control-checkbox" class="user__control-label">
+                                    <ion-icon class="user__control-icon" name="ios-arrow-down"></ion-icon>
+                                 </label>
+                                 <ul class="user__control-container">
+                                    <li class="user__control-item">Profile</li>
+                                    <li class="user__control-item">My Wallet</li>
+                                    <li class="user__control-item">Log Out</li>
+                                 </ul>
                               </div>
                            </div>
+                           <!-- User End -->
                         </header>
                         <!-- Header End -->
 
@@ -799,14 +811,14 @@
                            <div class="balance">
                               <div class="balance__info">
                                  <div class="user">
-                                    <span class="user__info-wallet-balance">$ 2442.00</span>
-                                    <h3 class="user__info-fullname">Jeremy Scott</h3>
+                                    <span class="user__info-wallet-balance">$ 0000.00</span>
+                                    <h3 class="user__info-fullname">Your Name</h3>
                                  </div>
                                  <div class="balance__info-id">
                                     <img width="50" height="50"
                                        src="https://i2.wp.com/getdrawings.com/free-icon/chip-icon-64.png" alt=""
                                        class="balance__info-id-img">
-                                    <span class="balance__info-wallet-id">2442006789</span>
+                                    <span class="balance__info-wallet-id">xxxxxxxxx</span>
                                  </div>
                               </div>
                               <i class="balance__desc">Visa</i>
@@ -945,7 +957,7 @@
                            <footer class="order__footer">
                               <div class="order__footer-total-cost">
                                  <h3 class="order__footer-total-cost-desc">Total: </h3>
-                                 <p class="order__footer-total-cost-number"><span>$</span>100</p>
+                                 <p class="order__footer-total-cost-number"><span>$</span>0</p>
                               </div>
 
                               <button class="btn order__footer-checkout-btn">

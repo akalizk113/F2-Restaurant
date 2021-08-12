@@ -40,6 +40,17 @@
     transform: scale(100%);
   }
 }
+@keyframes growDown {
+  0% {
+    transform: scaleY(0);
+  }
+  80% {
+    transform: scaleY(1.1);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
 html {
   font-family: "Open Sans", sans-serif;
   color: #292A3A;
@@ -498,6 +509,17 @@ body {
   }
   to {
     transform: scale(100%);
+  }
+}
+@keyframes growDown {
+  0% {
+    transform: scaleY(0);
+  }
+  80% {
+    transform: scaleY(1.1);
+  }
+  100% {
+    transform: scaleY(1);
   }
 }
 .home {
@@ -1063,6 +1085,8 @@ body {
   padding: 10px 0 10px 10px;
   display: none;
   overflow-y: scroll;
+  transform-origin: top;
+  animation: growDown 300ms ease-in-out forwards;
 }
 .home__sub-container .header__notify-container::-webkit-scrollbar {
   width: 10px;
@@ -1248,15 +1272,59 @@ body {
 .home__sub-container .header .user__control {
   width: 30px;
   height: 30px;
-  border-radius: 50%;
+  transition: all 0.3s;
+  position: relative;
+}
+.home__sub-container .header .user__control-label {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
   transition: all 0.3s;
 }
-.home__sub-container .header .user__control:hover {
+.home__sub-container .header .user__control-label:hover {
   background-color: #ddd;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.home__sub-container .header .user__control input[type=checkbox] {
+  display: none;
+}
+.home__sub-container .header .user__control input[type=checkbox]:checked ~ .user__control-container {
+  display: block;
+}
+.home__sub-container .header .user__control input[type=checkbox]:checked ~ .user__control-label {
+  background-color: #FFE2BA;
+  color: #fa9401;
+}
+.home__sub-container .header .user__control-container {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 5px;
+  background-color: #fff;
+  z-index: 10;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 0;
+  margin: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 8px;
+  display: none;
+  animation: growDown 300ms ease-in-out forwards;
+  transform-origin: top;
+}
+.home__sub-container .header .user__control-item {
+  list-style: none;
+  min-width: max-content;
+  padding: 8px 24px;
+  border-radius: 5px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.home__sub-container .header .user__control-item:hover {
+  background-color: #ddd;
   cursor: pointer;
 }
 
