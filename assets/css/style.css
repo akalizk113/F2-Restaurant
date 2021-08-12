@@ -372,6 +372,46 @@ body {
     stroke-dashoffset: -440;
   }
 }
+.bgc-0 {
+  background-color: #fec89a;
+}
+
+.bgc-1 {
+  background-color: #fec5bb;
+}
+
+.bgc-2 {
+  background-color: #fcd5ce;
+}
+
+.bgc-3 {
+  background-color: #fae1dd;
+}
+
+.bgc-4 {
+  background-color: #f8edeb;
+}
+
+.bgc-5 {
+  background-color: #e8e8e4;
+}
+
+.bgc-6 {
+  background-color: #d8e2dc;
+}
+
+.bgc-7 {
+  background-color: #ece4db;
+}
+
+.bgc-8 {
+  background-color: #ffe5d9;
+}
+
+.bgc-9 {
+  background-color: #ffd7ba;
+}
+
 .body-container {
   height: 100%;
   margin: auto;
@@ -1495,7 +1535,6 @@ body {
   min-width: 60px;
   display: flex;
   border-radius: 15px;
-  background-color: #FFE2BA;
 }
 .order .order__food-img img {
   margin: auto;

@@ -762,7 +762,7 @@
                            </span>
 
                            <!-- User -->
-                           <div class="user  d-none">
+                           <div class="user d-none">
                               <div class="user__avatar">
                                  <img width="30" height="30"
                                     src="https://thuthuatnhanh.com/wp-content/uploads/2019/07/hinh-anh-chibi-yasuo-lol-ngau-dep-chat-nhat-5.jpg"
@@ -832,7 +832,7 @@
                               <h2 class="order__heading">Order Menu</h2>
                            </header>
                            <div class="order__container">
-                              <div class="order__food">
+                              <div data-foodtype="pizza" data-foodid="1" class="order__food">
                                  <div class="order__food-img">
                                     <img src="./assets/img/burger/burger_b_tr_ng_update.png" alt="">
                                  </div>
@@ -990,7 +990,7 @@
          <!-- Auth Form -->
          <div class="auth-form d-none">
             <!-- Login Form -->
-            <div class="auth-form__container d-none">
+            <div class="auth-form__container login-form-container d-none">
                <header class="auth-form__header">
                   <h2 class="auth-form__heading">Login</h2>
                </header>
@@ -1066,7 +1066,7 @@
             <!-- Login Form End -->
 
             <!-- Register Form -->
-            <div class="auth-form__container">
+            <div class="auth-form__container register-form-container d-none">
                <header class="auth-form__header">
                   <h2 class="auth-form__heading">Create a new account</h2>
                </header>
@@ -1145,7 +1145,7 @@
          <!-- Auth Form End -->
 
          <!-- Alert -->
-         <div class="alert">
+         <div class="alert d-none">
             <header class="alert__header">
                <h3 class="alert__title d-none">Login Required</h3>
                <h3 class="alert__title">Payment Confirm</h3>

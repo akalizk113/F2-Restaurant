@@ -21,3 +21,15 @@ export function loader(parentSelector, isLoading, loaderMessage = "Loading....")
    }
    
 };
+
+export function displayElement(element, status = true) {
+   if(status) {
+      if(element) {
+         element.classList.remove('d-none');
+         displayElement(element.closest('.d-none'))
+      }
+   }
+   else {
+      element.classList.add('d-none');
+   }
+}
