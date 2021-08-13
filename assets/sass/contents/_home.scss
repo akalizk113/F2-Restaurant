@@ -669,10 +669,14 @@
             background-color: #fff;
             border-bottom: 1px solid #ccc;
             position: relative;
-            // overflow-y: hidden;
             -webkit-transition: all 0.4s ease;
             transition: max-height 0.4s ease-in;
             cursor: default;
+            &--unread {
+               .notify-item__unread {
+                  display: block;
+               }
+            }  
 
             &:hover {
                border-radius: 10px;
@@ -810,6 +814,7 @@
 
             &__unread {
                margin: auto;
+               display: none;
 
                &-icon {
                   color: $blue-1;
@@ -951,21 +956,22 @@
       border-radius: 20px;
       background-size: cover;
       background-repeat: no-repeat;
-      box-shadow: 2px 2px 5px rgb(0 0 0 / 10%);
+      box-shadow: 2px 2px 5px rgb(0 0 0 / 40%);
+      
 
       &-1 {
-         background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20190222/ourmid/pngtree-orange-gradient-background-illustration-imageorange-background-illustrationgradient-image_60012.jpg');
+         background-image: url('https://ptanhf2restaurant.herokuapp.com/api/img/card_background/black.jpg');
          z-index: 3;
       }
-
+      
       &-2 {
-         background-image: url('');
+         background-image: url('https://ptanhf2restaurant.herokuapp.com/api/img/card_background/orange.jpg');
          transform: rotateZ(-8deg);
          z-index: 2;
       }
 
       &-3 {
-         background-image: url('');
+         background-image: url('https://ptanhf2restaurant.herokuapp.com/api/img/card_background/deep-blue.jpg');
          transform: rotateZ(-16deg);
          z-index: 1;
       }
@@ -975,8 +981,8 @@
 .balance {
    position: absolute;
    inset: 0;
-   color: #fff;
-   // color: #F5BD02;   
+   // color: #fff;
+   color: #F5BD02;   
    display: flex;
    flex-direction: column;
    padding: 16px;

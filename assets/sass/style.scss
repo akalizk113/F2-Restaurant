@@ -254,9 +254,9 @@
             border: none;
             outline: none;
             padding: 4px 16px 4px 8px;
-            font-size: 0.825rem;
             width: 92%;
             position: relative;
+            font-size: 1rem;
 
             &:placeholder-shown + .form__label {
                transform: translateY(-50%);

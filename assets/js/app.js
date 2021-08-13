@@ -5,6 +5,9 @@ const $$ = document.querySelectorAll.bind(document);
 import {
    loader,
    displayElement,
+   resetForm,
+   formValidate,
+   validate,
 }
 from './lib.js';
 
@@ -73,11 +76,22 @@ const app = (() => {
 
       // DOM handle
       handleEvent() {
-         const orderFoods = $$('.order__food');
          function updateTotalCost() {
-            orderFoods.forEach(food => {
-               
-            })
+            const orderFoods = $$('.order__food');
+            const totalCost = Array.from(orderFoods).reduce((acc, food) => {
+               const x = new Big(Number(acc));
+               return x.add(Number(food.querySelector('.order__food-cost').lastChild.textContent)).valueOf();
+            } , 0);
+            $('.order__footer-total-cost-number').lastChild.textContent = totalCost;
+         }
+
+         function updateCost(food) {
+            const foodPrice = new Big(Number(food.dataset.foodprice));
+            const foodAmount = food.querySelector('.order__food-info-amount-number').value;
+            const cost = foodPrice.times(Number(foodAmount)).valueOf();
+
+            food.querySelector('.order__food-cost').lastChild.textContent = cost;
+            updateTotalCost();
          }
 
 
@@ -110,10 +124,13 @@ const app = (() => {
                for (let i = 1; i < modalBody.children.length; i++) {
                   displayElement(modalBody.children[i], false);
                }
+               resetForm('#form-1', '.form__message', 'form__group--invalid');
+               resetForm('#form-2', '.form__message', 'form__group--invalid');
+
             }
          })();
 
-         // Home container
+         // Home main container
          (function homeMainContainerHandler() {
             // Menu Category onclick
             const menuCategoryList = $$('.menu__category-item');
@@ -162,18 +179,22 @@ const app = (() => {
                   const foodClicked = addBtnClicked.closest('.food');
                   const foodExisted = findExistOrderFood(foodClicked.dataset.foodtype, foodClicked.dataset.foodid);
                   if(foodExisted) {
-
+                     if(foodExisted.querySelector('.order__food-info-amount-number').value < 100) {
+                        foodExisted.querySelector('.order__food-info-amount-number').value ++;
+                        updateCost(foodExisted);
+                     }
                   }
                   else {
-                     const newOrderFood = document.createElement('div');
-                     newOrderFood.className = 'order__food';
-                     newOrderFood.dataset.foodtype = foodClicked.dataset.foodtype;
-                     newOrderFood.dataset.foodid = foodClicked.dataset.foodid;
                      const foodInfo = {
                         img: foodClicked.querySelector('.food__img').src,
                         name: foodClicked.querySelector('.food__info-name').innerText,
                         price: foodClicked.querySelector('.food__info-price').lastChild.textContent,
                      }
+                     const newOrderFood = document.createElement('div');
+                     newOrderFood.className = 'order__food';
+                     newOrderFood.dataset.foodtype = foodClicked.dataset.foodtype;
+                     newOrderFood.dataset.foodid = foodClicked.dataset.foodid;
+                     newOrderFood.dataset.foodprice = foodInfo.price;
 
                      newOrderFood.innerHTML = `
                      <div class="order__food-img bgc-${orderFoodContainer.childElementCount % 10}">
@@ -194,7 +215,9 @@ const app = (() => {
                         orderFoodContainer.insertBefore(newOrderFood, orderFoodContainer.childNodes[0]);
                      else 
                         orderFoodContainer.appendChild(newOrderFood);
+
                   }
+                  updateTotalCost();
                }
             }
 
@@ -202,6 +225,80 @@ const app = (() => {
                const orderFoods = $$('.order__food');
                return Array.from(orderFoods).find(food => food.dataset.foodid == foodId 
                   && food.dataset.foodtype == foodType);
+            }
+
+         })();
+
+         // Home sub container
+         (function homeSubContainerHandler() {
+            // Order container handle
+            const orderFoodContainerElement = $('.order__container');
+               // Handle input unwanted characters
+            orderFoodContainerElement.onkeydown = e => {
+               switch(e.keyCode) {
+                  case 189:
+                  case 69:
+                  case 187:
+                     e.preventDefault();
+                     break;
+                  default: 
+                     return;
+               }
+            }
+               // Handle input event
+            orderFoodContainerElement.oninput = e => {
+               if(e.target.className === "order__food-info-amount-number"){
+                  const orderFoodChanged = e.target.closest('.order__food')
+                  if(e.target.value.length > 3 ) {
+                     e.target.value = e.target.value.slice(0, 3);
+                  }
+                  if(Number(e.target.value) > 100) {
+                     e.target.value = e.target.value.substr(0, e.target.value.length - 1);
+                  }
+                  updateCost(orderFoodChanged);
+               }
+            }
+            orderFoodContainerElement.onchange = e => {
+               if(e.target.className === "order__food-info-amount-number"){
+                  const orderFoodChanged = e.target.closest('.order__food')
+                  if(e.target.value === "0" || e.target.value === "") {
+                     orderFoodChanged.remove();
+                  }
+               }
+            }
+               // Delete btn onclick
+            orderFoodContainerElement.onclick = e => {
+               const deleteBtnClicked = e.target.closest('.order__food-delete-btn')
+               if (deleteBtnClicked){
+                  const orderFoodClicked = deleteBtnClicked.closest('.order__food');
+                  orderFoodClicked.remove();
+                  updateTotalCost();
+               }
+            }
+            
+
+            // Notify container
+               // Delete btn onclick
+            const notifyContainerElement = $('.header__notify-container')
+            notifyContainerElement.addEventListener('click', e => {
+               const deleteBtnClicked = e.target.closest('.more-menu-delete-btn');
+               if(deleteBtnClicked) {
+                  const notifyItemClicked = e.target.closest('.notify-item');
+                  notifyItemClicked.remove();
+               }
+            })
+               // Delete all btn onclick
+            notifyContainerElement.addEventListener('click', e => {
+               if(e.target.closest('.notify-delete-all-btn')){
+                  notifyContainerElement.innerHTML = 
+                  `<div class="notify-delete-all">
+                  <span class="notify-delete-all-btn">Delete All</span>
+                  </div>`;
+               }
+            })
+               // Remove has notify count
+            $('.header__notify').onclick = e => {
+               e.target.closest('.header__notify').classList.remove('header__notify--has-notify')
             }
 
          })();
@@ -230,6 +327,39 @@ const app = (() => {
          }, '.food-container .row');
 
          $('.order__container').innerHTML = ``;
+
+         // Form Validate
+         formValidate({
+            formSelector: '#form-1',
+            formGroupSelector: '.form__group',
+            formMessageSelector: '.form__message',
+            formInvalidClassName: 'form__group--invalid',
+            rules: [
+               validate.isRequired('#login-email'),
+               validate.isRequired('#login-password'),
+            ],
+            submit(submitResult){
+               console.log(submitResult);
+            }
+         });
+
+         formValidate({
+            formSelector: '#form-2',
+            formGroupSelector: '.form__group',
+            formMessageSelector: '.form__message',
+            formInvalidClassName: 'form__group--invalid',
+            rules: [
+               validate.isRequired('#register-fullname'),
+               validate.isEmail('#register-email'),
+               validate.minLength('#register-password', 6),
+               validate.isRequired('#confirm-password'),
+               validate.isConfirmed('#confirm-password', '#register-password', 'Password does not match'),
+               validate.isChecked('#policy-checkbox', 'Please agree to all terms of service before continuing')
+            ],
+            submit(submitResult){
+               console.log(submitResult);
+            }
+         });
 
          // Handel Event
          this.handleEvent();
