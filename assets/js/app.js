@@ -3,11 +3,14 @@ const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
 import {
-   loader,
+   loader1,
+   loader2,
    displayElement,
    resetForm,
-   formValidate,
-   validate,
+   FormValidate,
+   authenticate,
+   sendFormError,
+   authSuccess,
 }
 from './lib.js';
 
@@ -16,15 +19,19 @@ const app = (() => {
    let foodContainer;
    let displayFoodContainer;
    const api = "https://ptanhf2restaurant.herokuapp.com/api/";
-
+   const formOptions = {
+      formGroupSelector: '.form__group',
+      formMessageSelector: '.form__message',
+      formInvalidClassName: 'form__group--invalid',
+   }
    // Functions
    // Render & Display
    async function loadFoods(apis, callback, loaderSelector) {
       try {
-         loader($(`${loaderSelector}`), true)
+         loader1($(`${loaderSelector}`), true)
          const res = await fetch(apis);
          foodContainer = await res.json();
-         loader($(`${loaderSelector}`), false)
+         loader1($(`${loaderSelector}`), false)
          if (typeof callback === "function")
             callback(foodContainer);
       } catch (err) {
@@ -64,15 +71,25 @@ const app = (() => {
       rowFoodContainer.innerHTML = htmlString;
    };
 
-   return {
-      // Cookie
-      setCookie(data) {
-         document.cookie = data;
-      },
+   function displayUser(user) {
+      $$('.auth-required').forEach(item => item.classList.add('d-none'));
+      const userContainer = $('.user');
+      userContainer.classList.remove('d-none');
+      userContainer.querySelector('.user__avatar-img').src = user.avatar;
+      $$('.user__info-name').forEach(item => item.innerText = user.username);
 
-      getCookie() {
-         return document.cookie;
-      },
+
+      displayElement($('.banner__contets-heading'));
+
+      $('.user__info-wallet-balance').innerText = `$ ${user.wallet.balance}`;
+      $('.user__info-fullname').innerText = user.fullname;
+      $('.balance__info-wallet-id').innerText = user.wallet.id;
+
+      $('.modal__body-close-btn').click();
+   }
+
+   return {
+      // Config
 
       // DOM handle
       handleEvent() {
@@ -81,7 +98,7 @@ const app = (() => {
             const totalCost = Array.from(orderFoods).reduce((acc, food) => {
                const x = new Big(Number(acc));
                return x.add(Number(food.querySelector('.order__food-cost').lastChild.textContent)).valueOf();
-            } , 0);
+            }, 0);
             $('.order__footer-total-cost-number').lastChild.textContent = totalCost;
          }
 
@@ -165,7 +182,7 @@ const app = (() => {
             // Search Event
             const headerSearchInput = $('.header__search-input')
             headerSearchInput.oninput = e => {
-               const filtedFoods = displayFoodContainer.filter(food => 
+               const filtedFoods = displayFoodContainer.filter(food =>
                   food.name.toLowerCase().includes(`${headerSearchInput.value.toLowerCase()}`))
                displayFoods(filtedFoods);
             }
@@ -175,16 +192,15 @@ const app = (() => {
             const orderFoodContainer = $('.order__container');
             foodContainerElement.onclick = e => {
                const addBtnClicked = e.target.closest('.food__contents-add-btn');
-               if(addBtnClicked) {
+               if (addBtnClicked) {
                   const foodClicked = addBtnClicked.closest('.food');
                   const foodExisted = findExistOrderFood(foodClicked.dataset.foodtype, foodClicked.dataset.foodid);
-                  if(foodExisted) {
-                     if(foodExisted.querySelector('.order__food-info-amount-number').value < 100) {
-                        foodExisted.querySelector('.order__food-info-amount-number').value ++;
+                  if (foodExisted) {
+                     if (foodExisted.querySelector('.order__food-info-amount-number').value < 100) {
+                        foodExisted.querySelector('.order__food-info-amount-number').value++;
                         updateCost(foodExisted);
                      }
-                  }
-                  else {
+                  } else {
                      const foodInfo = {
                         img: foodClicked.querySelector('.food__img').src,
                         name: foodClicked.querySelector('.food__info-name').innerText,
@@ -211,9 +227,9 @@ const app = (() => {
                      </div>
                      <span class="order__food-cost"><span>$</span>${foodInfo.price}</span>
                      `;
-                     if(orderFoodContainer.querySelector('.order__food')) 
+                     if (orderFoodContainer.querySelector('.order__food'))
                         orderFoodContainer.insertBefore(newOrderFood, orderFoodContainer.childNodes[0]);
-                     else 
+                     else
                         orderFoodContainer.appendChild(newOrderFood);
 
                   }
@@ -223,8 +239,8 @@ const app = (() => {
 
             function findExistOrderFood(foodType, foodId) {
                const orderFoods = $$('.order__food');
-               return Array.from(orderFoods).find(food => food.dataset.foodid == foodId 
-                  && food.dataset.foodtype == foodType);
+               return Array.from(orderFoods).find(food => food.dataset.foodid == foodId &&
+                  food.dataset.foodtype == foodType);
             }
 
          })();
@@ -233,70 +249,70 @@ const app = (() => {
          (function homeSubContainerHandler() {
             // Order container handle
             const orderFoodContainerElement = $('.order__container');
-               // Handle input unwanted characters
+            // Handle input unwanted characters
             orderFoodContainerElement.onkeydown = e => {
-               switch(e.keyCode) {
+               switch (e.keyCode) {
                   case 189:
                   case 69:
                   case 187:
                      e.preventDefault();
                      break;
-                  default: 
+                  default:
                      return;
                }
             }
-               // Handle input event
+            // Handle input event
             orderFoodContainerElement.oninput = e => {
-               if(e.target.className === "order__food-info-amount-number"){
+               if (e.target.className === "order__food-info-amount-number") {
                   const orderFoodChanged = e.target.closest('.order__food')
-                  if(e.target.value.length > 3 ) {
+                  if (e.target.value.length > 3) {
                      e.target.value = e.target.value.slice(0, 3);
                   }
-                  if(Number(e.target.value) > 100) {
+                  if (Number(e.target.value) > 100) {
                      e.target.value = e.target.value.substr(0, e.target.value.length - 1);
                   }
                   updateCost(orderFoodChanged);
                }
             }
             orderFoodContainerElement.onchange = e => {
-               if(e.target.className === "order__food-info-amount-number"){
+               if (e.target.className === "order__food-info-amount-number") {
                   const orderFoodChanged = e.target.closest('.order__food')
-                  if(e.target.value === "0" || e.target.value === "") {
+                  if (e.target.value === "0" || e.target.value === "") {
                      orderFoodChanged.remove();
                   }
                }
             }
-               // Delete btn onclick
+            // Delete btn onclick
             orderFoodContainerElement.onclick = e => {
                const deleteBtnClicked = e.target.closest('.order__food-delete-btn')
-               if (deleteBtnClicked){
+               if (deleteBtnClicked) {
                   const orderFoodClicked = deleteBtnClicked.closest('.order__food');
                   orderFoodClicked.remove();
                   updateTotalCost();
                }
             }
-            
+
 
             // Notify container
-               // Delete btn onclick
+            // Delete btn onclick
             const notifyContainerElement = $('.header__notify-container')
             notifyContainerElement.addEventListener('click', e => {
                const deleteBtnClicked = e.target.closest('.more-menu-delete-btn');
-               if(deleteBtnClicked) {
+               if (deleteBtnClicked) {
                   const notifyItemClicked = e.target.closest('.notify-item');
                   notifyItemClicked.remove();
                }
             })
-               // Delete all btn onclick
+            // Delete all btn onclick
             notifyContainerElement.addEventListener('click', e => {
-               if(e.target.closest('.notify-delete-all-btn')){
-                  notifyContainerElement.innerHTML = 
-                  `<div class="notify-delete-all">
+               if (e.target.closest('.notify-delete-all-btn')) {
+                  notifyContainerElement.innerHTML =
+                     `<div class="notify-delete-all">
                   <span class="notify-delete-all-btn">Delete All</span>
                   </div>`;
                }
             })
-               // Remove has notify count
+            // Remove has notify count
             $('.header__notify').onclick = e => {
                e.target.closest('.header__notify').classList.remove('header__notify--has-notify')
             }
@@ -315,9 +331,9 @@ const app = (() => {
          loadFoods(`${api}foods`, foodContainer => {
             const foodType = categoryItemActived.dataset.foodtype;
 
-            for( let key in foodContainer) {
-               for(let item of foodContainer[key]) {
-                  item.foodType = key; 
+            for (let key in foodContainer) {
+               for (let item of foodContainer[key]) {
+                  item.foodType = key;
                }
             }
 
@@ -329,35 +345,70 @@ const app = (() => {
          $('.order__container').innerHTML = ``;
 
          // Form Validate
-         formValidate({
+         FormValidate({
             formSelector: '#form-1',
-            formGroupSelector: '.form__group',
-            formMessageSelector: '.form__message',
-            formInvalidClassName: 'form__group--invalid',
+            ...formOptions,
             rules: [
-               validate.isRequired('#login-email'),
-               validate.isRequired('#login-password'),
+               FormValidate.isRequired('#login-email'),
+               FormValidate.isRequired('#login-password'),
             ],
-            submit(submitResult){
-               console.log(submitResult);
+            submit: async (submitResult) => {
+               loader2($('.auth-form'), true, 'Signing in. . .');
+               const user = {
+                  email: submitResult.loginEmail,
+                  password: submitResult.loginPassword,
+                  rememberMe: submitResult["login-remember-checkbox"]
+               }
+               await authenticate(`${api}user/login`, user)
+                  .then(resBody => {
+                     isLoggedIn = true;
+                     displayUser(resBody.user);
+                  })
+                  .catch(err => {
+                     console.log("err");
+                     sendFormError(err.invalid, {
+                           formSelector: '#form-1',
+                           ...formOptions,
+                        },
+                        "is incorrect")
+                  })
+               loader2($('.auth-form'), false);
             }
          });
 
-         formValidate({
+         FormValidate({
             formSelector: '#form-2',
-            formGroupSelector: '.form__group',
-            formMessageSelector: '.form__message',
-            formInvalidClassName: 'form__group--invalid',
+            ...formOptions,
             rules: [
-               validate.isRequired('#register-fullname'),
-               validate.isEmail('#register-email'),
-               validate.minLength('#register-password', 6),
-               validate.isRequired('#confirm-password'),
-               validate.isConfirmed('#confirm-password', '#register-password', 'Password does not match'),
-               validate.isChecked('#policy-checkbox', 'Please agree to all terms of service before continuing')
+               FormValidate.isRequired('#register-fullname'),
+               FormValidate.minLength('#register-username', 6),
+               FormValidate.isRequired('#register-username'),
+               FormValidate.isEmail('#register-email'),
+               FormValidate.minLength('#register-password', 6),
+               FormValidate.isConfirmed('#confirm-password', '#register-password', 'Password does not match'),
+               FormValidate.isRequired('#confirm-password'),
+               FormValidate.isChecked('#policy-checkbox', 'Please agree to all terms of service before continuing')
             ],
-            submit(submitResult){
-               console.log(submitResult);
+            submit: async submitResult => {
+               loader2($('.auth-form'), true);
+               const newUser = {
+                  fullname: submitResult.registerFullname,
+                  username: submitResult.registerUsername,
+                  email: submitResult.registerEmail,
+                  password: submitResult.registerPassword,
+               }
+               await authenticate(`${api}user/register`, newUser)
+                  .then(res => {
+                     console.log(res);
+                  })
+                  .catch(err => {
+                     sendFormError(err.invalid, {
+                           formSelector: '#form-2',
+                           ...formOptions,
+                        },
+                        "already exists")
+                  })
+               loader2($('.auth-form'), false);
             }
          });
 

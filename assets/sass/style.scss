@@ -137,6 +137,7 @@
       border-radius: 20px;
       animation: growUp 0.3s;
       position: relative;
+      overflow: hidden;
 
       &-close-btn {
          position: absolute;
